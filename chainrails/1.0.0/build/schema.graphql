@@ -1,0 +1,31 @@
+type Intent @entity {
+  id: ID!
+  intentAddress: Bytes!
+  sourceChain: Int!
+  destinationChain: Int!
+  bridgeTokenOutOptions: [TokenAmount!]!
+  destinationRecipient: Bytes!
+  coordinator: Bytes!
+  bridger: Bytes!
+  refundAddress: Bytes!
+  nonce: BigInt!
+  expirationTimestamp: BigInt!
+  status: IntentStatus!
+  createdAt: BigInt!
+  fundedAt: BigInt
+}
+
+type TokenAmount @entity {
+  id: ID!
+  token: Bytes!
+  amount: BigInt!
+  intent: Intent!
+}
+
+enum IntentStatus {
+  PENDING
+  FUNDED
+  INITIATED
+  BRIDGING
+  COMPLETED
+}

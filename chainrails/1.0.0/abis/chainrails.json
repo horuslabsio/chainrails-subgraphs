@@ -1,0 +1,656 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_intentFactory",
+        "type": "address",
+        "internalType": "contract IntentFactory"
+      },
+      {
+        "name": "_intentProcessor",
+        "type": "address",
+        "internalType": "contract IntentProcessor"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "claimIntent",
+    "inputs": [
+      {
+        "name": "intent",
+        "type": "tuple",
+        "internalType": "struct PayIntent",
+        "components": [
+          {
+            "name": "sourceChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "destinationChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "bridgeTokenOutOptions",
+            "type": "tuple[]",
+            "internalType": "struct TokenAmount[]",
+            "components": [
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "contract IERC20"
+              },
+              {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "destinationRecipient",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "coordinator",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "bridger",
+            "type": "address",
+            "internalType": "contract IBridgeAdapter"
+          },
+          {
+            "name": "refundAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "expirationTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "intentFactory",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IntentFactory"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "intentProcessor",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IntentProcessor"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "intentSent",
+    "inputs": [
+      {
+        "name": "intentAddr",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "intentToRecipient",
+    "inputs": [
+      {
+        "name": "intentAddr",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "prepayIntent",
+    "inputs": [
+      {
+        "name": "intent",
+        "type": "tuple",
+        "internalType": "struct PayIntent",
+        "components": [
+          {
+            "name": "sourceChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "destinationChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "bridgeTokenOutOptions",
+            "type": "tuple[]",
+            "internalType": "struct TokenAmount[]",
+            "components": [
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "contract IERC20"
+              },
+              {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "destinationRecipient",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "coordinator",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "bridger",
+            "type": "address",
+            "internalType": "contract IBridgeAdapter"
+          },
+          {
+            "name": "refundAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "expirationTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "contract IERC20"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "startIntent",
+    "inputs": [
+      {
+        "name": "intent",
+        "type": "tuple",
+        "internalType": "struct PayIntent",
+        "components": [
+          {
+            "name": "sourceChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "destinationChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "bridgeTokenOutOptions",
+            "type": "tuple[]",
+            "internalType": "struct TokenAmount[]",
+            "components": [
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "contract IERC20"
+              },
+              {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "destinationRecipient",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "coordinator",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "bridger",
+            "type": "address",
+            "internalType": "contract IBridgeAdapter"
+          },
+          {
+            "name": "refundAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "expirationTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "name": "paymentTokens",
+        "type": "address[]",
+        "internalType": "contract IERC20[]"
+      },
+      {
+        "name": "bridgeExtraData",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "IntentClaimed",
+    "inputs": [
+      {
+        "name": "intentAddr",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "recipient",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IntentFinished",
+    "inputs": [
+      {
+        "name": "intentAddr",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "destinationAddr",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "intent",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct PayIntent",
+        "components": [
+          {
+            "name": "sourceChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "destinationChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "bridgeTokenOutOptions",
+            "type": "tuple[]",
+            "internalType": "struct TokenAmount[]",
+            "components": [
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "contract IERC20"
+              },
+              {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "destinationRecipient",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "coordinator",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "bridger",
+            "type": "address",
+            "internalType": "contract IBridgeAdapter"
+          },
+          {
+            "name": "refundAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "expirationTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IntentPrepaid",
+    "inputs": [
+      {
+        "name": "intentAddr",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "relayer",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "recipient",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IntentRefunded",
+    "inputs": [
+      {
+        "name": "intentAddr",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "refundAddr",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "tokens",
+        "type": "address[]",
+        "indexed": false,
+        "internalType": "contract IERC20[]"
+      },
+      {
+        "name": "amounts",
+        "type": "uint256[]",
+        "indexed": false,
+        "internalType": "uint256[]"
+      },
+      {
+        "name": "intent",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct PayIntent",
+        "components": [
+          {
+            "name": "sourceChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "destinationChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "bridgeTokenOutOptions",
+            "type": "tuple[]",
+            "internalType": "struct TokenAmount[]",
+            "components": [
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "contract IERC20"
+              },
+              {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "destinationRecipient",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "coordinator",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "bridger",
+            "type": "address",
+            "internalType": "contract IBridgeAdapter"
+          },
+          {
+            "name": "refundAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "expirationTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IntentStarted",
+    "inputs": [
+      {
+        "name": "intentAddr",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "intent",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct PayIntent",
+        "components": [
+          {
+            "name": "sourceChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "destinationChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "bridgeTokenOutOptions",
+            "type": "tuple[]",
+            "internalType": "struct TokenAmount[]",
+            "components": [
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "contract IERC20"
+              },
+              {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "destinationRecipient",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "coordinator",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "bridger",
+            "type": "address",
+            "internalType": "contract IBridgeAdapter"
+          },
+          {
+            "name": "refundAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "expirationTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "NativeTransfer",
+    "inputs": [
+      {
+        "name": "from",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "to",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "ReentrancyGuardReentrantCall",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "SafeERC20FailedOperation",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  }
+]
