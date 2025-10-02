@@ -1,19 +1,40 @@
-specVersion: 0.0.5
+specVersion: 0.0.4
 description: Chainrails subgraph for monitoring intent funding
 repository: https://github.com/horuslabsio/chainrails-subgraphs.git
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
+    name: IntentFactory
+    network: base-sepolia
+    source:
+      address: "0x0727F1cC44a938F45390e858300b0AE759fF4564"
+      abi: IntentFactory
+      startBlock: 31833456
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Intent
+      abis:
+        - name: IntentFactory
+          file: ./abis/intent_factory.json
+      eventHandlers:
+        - event: IntentCreated(indexed address,(uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256),indexed address)
+          handler: handleIntentCreated
+      file: ./mappings/intent-factory.ts
+
+  - kind: ethereum/contract
     name: Chainrails
     network: base-sepolia
     source:
-      address: "0x8aF807EC1e7dBbb9C7cBfd563D97a84f8feD8b30"
+      address: "0xE2a387833C388e6F9F1892B27A991AdcD526Bd72"
       abi: Chainrails
-      startBlock: 31190642
+      startBlock: 31833456
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.7
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - Intent
@@ -24,3 +45,25 @@ dataSources:
         - event: IntentStarted(indexed address,(uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256))
           handler: handleIntentStarted
       file: ./mappings/chainrails.ts
+
+  - kind: ethereum/contract
+    name: USDC
+    network: base-sepolia
+    source:
+      address: "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+      abi: ERC20
+      startBlock: 31833456
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Intent
+        - FundingTransaction
+      abis:
+        - name: ERC20
+          file: ./abis/erc20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleUSDCTransfer
+      file: ./mappings/erc20.ts

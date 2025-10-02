@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "codegen": "graph codegen",
-    "build": "graph build",
-    "deploy": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 chainrails/1.0.0"
+    "build": "graph build"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.67.4",

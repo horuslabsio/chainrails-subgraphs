@@ -13,6 +13,19 @@ type Intent @entity {
   status: IntentStatus!
   createdAt: BigInt!
   fundedAt: BigInt
+  totalFunded: BigInt! # Total amount funded so far
+  fundingTransactions: [FundingTransaction!]! @derivedFrom(field: "intent")
+}
+
+type FundingTransaction @entity {
+  id: ID! # tx_hash-log_index
+  intent: Intent!
+  token: Bytes!
+  amount: BigInt!
+  sender: Bytes!
+  transactionHash: Bytes!
+  blockNumber: BigInt!
+  timestamp: BigInt!
 }
 
 type TokenAmount @entity {
