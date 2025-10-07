@@ -236,6 +236,40 @@ export class Intent extends Entity {
     this.set("totalFunded", Value.fromBigInt(value));
   }
 
+  get creator(): Bytes | null {
+    let value = this.get("creator");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytes();
+    }
+  }
+
+  set creator(value: Bytes | null) {
+    if (!value) {
+      this.unset("creator");
+    } else {
+      this.set("creator", Value.fromBytes(<Bytes>value));
+    }
+  }
+
+  get declarer(): Bytes | null {
+    let value = this.get("declarer");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytes();
+    }
+  }
+
+  set declarer(value: Bytes | null) {
+    if (!value) {
+      this.unset("declarer");
+    } else {
+      this.set("declarer", Value.fromBytes(<Bytes>value));
+    }
+  }
+
   get fundingTransactions(): FundingTransactionLoader {
     return new FundingTransactionLoader(
       "Intent",

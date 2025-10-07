@@ -86,6 +86,82 @@ export class IntentCreatedIntentBridgeTokenOutOptionsStruct extends ethereum.Tup
   }
 }
 
+export class IntentDeclared extends ethereum.Event {
+  get params(): IntentDeclared__Params {
+    return new IntentDeclared__Params(this);
+  }
+}
+
+export class IntentDeclared__Params {
+  _event: IntentDeclared;
+
+  constructor(event: IntentDeclared) {
+    this._event = event;
+  }
+
+  get intentAddress(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get intent(): IntentDeclaredIntentStruct {
+    return changetype<IntentDeclaredIntentStruct>(
+      this._event.parameters[1].value.toTuple(),
+    );
+  }
+
+  get declarer(): Address {
+    return this._event.parameters[2].value.toAddress();
+  }
+}
+
+export class IntentDeclaredIntentStruct extends ethereum.Tuple {
+  get sourceChain(): i32 {
+    return this[0].toI32();
+  }
+
+  get destinationChain(): i32 {
+    return this[1].toI32();
+  }
+
+  get bridgeTokenOutOptions(): Array<IntentDeclaredIntentBridgeTokenOutOptionsStruct> {
+    return this[2].toTupleArray<IntentDeclaredIntentBridgeTokenOutOptionsStruct>();
+  }
+
+  get destinationRecipient(): Bytes {
+    return this[3].toBytes();
+  }
+
+  get coordinator(): Address {
+    return this[4].toAddress();
+  }
+
+  get bridger(): Address {
+    return this[5].toAddress();
+  }
+
+  get refundAddress(): Address {
+    return this[6].toAddress();
+  }
+
+  get nonce(): BigInt {
+    return this[7].toBigInt();
+  }
+
+  get expirationTimestamp(): BigInt {
+    return this[8].toBigInt();
+  }
+}
+
+export class IntentDeclaredIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
+  get token(): Address {
+    return this[0].toAddress();
+  }
+
+  get amount(): BigInt {
+    return this[1].toBigInt();
+  }
+}
+
 export class IntentFactory__createIntentInputIntentStruct extends ethereum.Tuple {
   get sourceChain(): i32 {
     return this[0].toI32();
@@ -125,6 +201,54 @@ export class IntentFactory__createIntentInputIntentStruct extends ethereum.Tuple
 }
 
 export class IntentFactory__createIntentInputIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
+  get token(): Address {
+    return this[0].toAddress();
+  }
+
+  get amount(): BigInt {
+    return this[1].toBigInt();
+  }
+}
+
+export class IntentFactory__declareIntentInputIntentStruct extends ethereum.Tuple {
+  get sourceChain(): i32 {
+    return this[0].toI32();
+  }
+
+  get destinationChain(): i32 {
+    return this[1].toI32();
+  }
+
+  get bridgeTokenOutOptions(): Array<IntentFactory__declareIntentInputIntentBridgeTokenOutOptionsStruct> {
+    return this[2].toTupleArray<IntentFactory__declareIntentInputIntentBridgeTokenOutOptionsStruct>();
+  }
+
+  get destinationRecipient(): Bytes {
+    return this[3].toBytes();
+  }
+
+  get coordinator(): Address {
+    return this[4].toAddress();
+  }
+
+  get bridger(): Address {
+    return this[5].toAddress();
+  }
+
+  get refundAddress(): Address {
+    return this[6].toAddress();
+  }
+
+  get nonce(): BigInt {
+    return this[7].toBigInt();
+  }
+
+  get expirationTimestamp(): BigInt {
+    return this[8].toBigInt();
+  }
+}
+
+export class IntentFactory__declareIntentInputIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
   get token(): Address {
     return this[0].toAddress();
   }
@@ -203,6 +327,33 @@ export class IntentFactory extends ethereum.SmartContract {
     let result = super.tryCall(
       "createIntent",
       "createIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256)):(address)",
+      [ethereum.Value.fromTuple(intent)],
+    );
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(value[0].toAddress());
+  }
+
+  declareIntent(
+    intent: IntentFactory__declareIntentInputIntentStruct,
+  ): Address {
+    let result = super.call(
+      "declareIntent",
+      "declareIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256)):(address)",
+      [ethereum.Value.fromTuple(intent)],
+    );
+
+    return result[0].toAddress();
+  }
+
+  try_declareIntent(
+    intent: IntentFactory__declareIntentInputIntentStruct,
+  ): ethereum.CallResult<Address> {
+    let result = super.tryCall(
+      "declareIntent",
+      "declareIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {
@@ -356,6 +507,90 @@ export class CreateIntentCallIntentStruct extends ethereum.Tuple {
 }
 
 export class CreateIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
+  get token(): Address {
+    return this[0].toAddress();
+  }
+
+  get amount(): BigInt {
+    return this[1].toBigInt();
+  }
+}
+
+export class DeclareIntentCall extends ethereum.Call {
+  get inputs(): DeclareIntentCall__Inputs {
+    return new DeclareIntentCall__Inputs(this);
+  }
+
+  get outputs(): DeclareIntentCall__Outputs {
+    return new DeclareIntentCall__Outputs(this);
+  }
+}
+
+export class DeclareIntentCall__Inputs {
+  _call: DeclareIntentCall;
+
+  constructor(call: DeclareIntentCall) {
+    this._call = call;
+  }
+
+  get intent(): DeclareIntentCallIntentStruct {
+    return changetype<DeclareIntentCallIntentStruct>(
+      this._call.inputValues[0].value.toTuple(),
+    );
+  }
+}
+
+export class DeclareIntentCall__Outputs {
+  _call: DeclareIntentCall;
+
+  constructor(call: DeclareIntentCall) {
+    this._call = call;
+  }
+
+  get intentAddress(): Address {
+    return this._call.outputValues[0].value.toAddress();
+  }
+}
+
+export class DeclareIntentCallIntentStruct extends ethereum.Tuple {
+  get sourceChain(): i32 {
+    return this[0].toI32();
+  }
+
+  get destinationChain(): i32 {
+    return this[1].toI32();
+  }
+
+  get bridgeTokenOutOptions(): Array<DeclareIntentCallIntentBridgeTokenOutOptionsStruct> {
+    return this[2].toTupleArray<DeclareIntentCallIntentBridgeTokenOutOptionsStruct>();
+  }
+
+  get destinationRecipient(): Bytes {
+    return this[3].toBytes();
+  }
+
+  get coordinator(): Address {
+    return this[4].toAddress();
+  }
+
+  get bridger(): Address {
+    return this[5].toAddress();
+  }
+
+  get refundAddress(): Address {
+    return this[6].toAddress();
+  }
+
+  get nonce(): BigInt {
+    return this[7].toBigInt();
+  }
+
+  get expirationTimestamp(): BigInt {
+    return this[8].toBigInt();
+  }
+}
+
+export class DeclareIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
   get token(): Address {
     return this[0].toAddress();
   }

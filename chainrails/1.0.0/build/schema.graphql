@@ -1,44 +1,47 @@
 type Intent @entity {
-  id: ID!
-  intentAddress: Bytes!
-  sourceChain: Int!
-  destinationChain: Int!
-  bridgeTokenOutOptions: [TokenAmount!]!
-  destinationRecipient: Bytes!
-  coordinator: Bytes!
-  bridger: Bytes!
-  refundAddress: Bytes!
-  nonce: BigInt!
-  expirationTimestamp: BigInt!
-  status: IntentStatus!
-  createdAt: BigInt!
-  fundedAt: BigInt
-  totalFunded: BigInt! # Total amount funded so far
-  fundingTransactions: [FundingTransaction!]! @derivedFrom(field: "intent")
+    id: ID!
+    intentAddress: Bytes!
+    sourceChain: Int!
+    destinationChain: Int!
+    bridgeTokenOutOptions: [TokenAmount!]!
+    destinationRecipient: Bytes!
+    coordinator: Bytes!
+    bridger: Bytes!
+    refundAddress: Bytes!
+    nonce: BigInt!
+    expirationTimestamp: BigInt!
+    status: IntentStatus!
+    createdAt: BigInt!
+    fundedAt: BigInt
+    totalFunded: BigInt! # Total amount funded so far
+    creator: Bytes # Address of the creator (from IntentCreated event)
+    declarer: Bytes # Address of the declarer (from IntentDeclared event)
+    fundingTransactions: [FundingTransaction!]! @derivedFrom(field: "intent")
 }
 
 type FundingTransaction @entity {
-  id: ID! # tx_hash-log_index
-  intent: Intent!
-  token: Bytes!
-  amount: BigInt!
-  sender: Bytes!
-  transactionHash: Bytes!
-  blockNumber: BigInt!
-  timestamp: BigInt!
+    id: ID! # tx_hash-log_index
+    intent: Intent!
+    token: Bytes!
+    amount: BigInt!
+    sender: Bytes!
+    transactionHash: Bytes!
+    blockNumber: BigInt!
+    timestamp: BigInt!
 }
 
 type TokenAmount @entity {
-  id: ID!
-  token: Bytes!
-  amount: BigInt!
-  intent: Intent!
+    id: ID!
+    token: Bytes!
+    amount: BigInt!
+    intent: Intent!
 }
 
 enum IntentStatus {
-  PENDING
-  FUNDED
-  INITIATED
-  BRIDGING
-  COMPLETED
+    DECLARED
+    PENDING
+    FUNDED
+    INITIATED
+    BRIDGING
+    COMPLETED
 }

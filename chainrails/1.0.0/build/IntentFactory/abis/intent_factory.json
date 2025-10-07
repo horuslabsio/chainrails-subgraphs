@@ -84,6 +84,84 @@
   },
   {
     "type": "function",
+    "name": "declareIntent",
+    "inputs": [
+      {
+        "name": "intent",
+        "type": "tuple",
+        "internalType": "struct PayIntent",
+        "components": [
+          {
+            "name": "sourceChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "destinationChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "bridgeTokenOutOptions",
+            "type": "tuple[]",
+            "internalType": "struct TokenAmount[]",
+            "components": [
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "contract IERC20"
+              },
+              {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "destinationRecipient",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "coordinator",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "bridger",
+            "type": "address",
+            "internalType": "contract IBridgeAdapter"
+          },
+          {
+            "name": "refundAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "expirationTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "intentAddress",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
     "name": "getIntentAddress",
     "inputs": [
       {
@@ -250,6 +328,90 @@
       },
       {
         "name": "creator",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IntentDeclared",
+    "inputs": [
+      {
+        "name": "intentAddress",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "intent",
+        "type": "tuple",
+        "indexed": false,
+        "internalType": "struct PayIntent",
+        "components": [
+          {
+            "name": "sourceChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "destinationChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "bridgeTokenOutOptions",
+            "type": "tuple[]",
+            "internalType": "struct TokenAmount[]",
+            "components": [
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "contract IERC20"
+              },
+              {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "destinationRecipient",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "coordinator",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "bridger",
+            "type": "address",
+            "internalType": "contract IBridgeAdapter"
+          },
+          {
+            "name": "refundAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "expirationTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "name": "declarer",
         "type": "address",
         "indexed": true,
         "internalType": "address"
