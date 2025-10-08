@@ -50,17 +50,17 @@ export class Intent extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get intentAddress(): Bytes {
+  get intentAddress(): string {
     let value = this.get("intentAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set intentAddress(value: Bytes) {
-    this.set("intentAddress", Value.fromBytes(value));
+  set intentAddress(value: string) {
+    this.set("intentAddress", Value.fromString(value));
   }
 
   get sourceChain(): i32 {
@@ -102,56 +102,56 @@ export class Intent extends Entity {
     this.set("bridgeTokenOutOptions", Value.fromStringArray(value));
   }
 
-  get destinationRecipient(): Bytes {
+  get destinationRecipient(): string {
     let value = this.get("destinationRecipient");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set destinationRecipient(value: Bytes) {
-    this.set("destinationRecipient", Value.fromBytes(value));
+  set destinationRecipient(value: string) {
+    this.set("destinationRecipient", Value.fromString(value));
   }
 
-  get coordinator(): Bytes {
+  get coordinator(): string {
     let value = this.get("coordinator");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set coordinator(value: Bytes) {
-    this.set("coordinator", Value.fromBytes(value));
+  set coordinator(value: string) {
+    this.set("coordinator", Value.fromString(value));
   }
 
-  get bridger(): Bytes {
+  get bridger(): string {
     let value = this.get("bridger");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set bridger(value: Bytes) {
-    this.set("bridger", Value.fromBytes(value));
+  set bridger(value: string) {
+    this.set("bridger", Value.fromString(value));
   }
 
-  get refundAddress(): Bytes {
+  get refundAddress(): string {
     let value = this.get("refundAddress");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set refundAddress(value: Bytes) {
-    this.set("refundAddress", Value.fromBytes(value));
+  set refundAddress(value: string) {
+    this.set("refundAddress", Value.fromString(value));
   }
 
   get nonce(): BigInt {
@@ -191,6 +191,19 @@ export class Intent extends Entity {
 
   set status(value: string) {
     this.set("status", Value.fromString(value));
+  }
+
+  get needsRelay(): boolean {
+    let value = this.get("needsRelay");
+    if (!value || value.kind == ValueKind.NULL) {
+      return false;
+    } else {
+      return value.toBoolean();
+    }
+  }
+
+  set needsRelay(value: boolean) {
+    this.set("needsRelay", Value.fromBoolean(value));
   }
 
   get createdAt(): BigInt {
@@ -236,37 +249,37 @@ export class Intent extends Entity {
     this.set("totalFunded", Value.fromBigInt(value));
   }
 
-  get creator(): Bytes | null {
+  get creator(): string | null {
     let value = this.get("creator");
     if (!value || value.kind == ValueKind.NULL) {
       return null;
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set creator(value: Bytes | null) {
+  set creator(value: string | null) {
     if (!value) {
       this.unset("creator");
     } else {
-      this.set("creator", Value.fromBytes(<Bytes>value));
+      this.set("creator", Value.fromString(<string>value));
     }
   }
 
-  get declarer(): Bytes | null {
+  get declarer(): string | null {
     let value = this.get("declarer");
     if (!value || value.kind == ValueKind.NULL) {
       return null;
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set declarer(value: Bytes | null) {
+  set declarer(value: string | null) {
     if (!value) {
       this.unset("declarer");
     } else {
-      this.set("declarer", Value.fromBytes(<Bytes>value));
+      this.set("declarer", Value.fromString(<string>value));
     }
   }
 
@@ -335,17 +348,17 @@ export class FundingTransaction extends Entity {
     this.set("intent", Value.fromString(value));
   }
 
-  get token(): Bytes {
+  get token(): string {
     let value = this.get("token");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set token(value: Bytes) {
-    this.set("token", Value.fromBytes(value));
+  set token(value: string) {
+    this.set("token", Value.fromString(value));
   }
 
   get amount(): BigInt {
@@ -361,30 +374,30 @@ export class FundingTransaction extends Entity {
     this.set("amount", Value.fromBigInt(value));
   }
 
-  get sender(): Bytes {
+  get sender(): string {
     let value = this.get("sender");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set sender(value: Bytes) {
-    this.set("sender", Value.fromBytes(value));
+  set sender(value: string) {
+    this.set("sender", Value.fromString(value));
   }
 
-  get transactionHash(): Bytes {
+  get transactionHash(): string {
     let value = this.get("transactionHash");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set transactionHash(value: Bytes) {
-    this.set("transactionHash", Value.fromBytes(value));
+  set transactionHash(value: string) {
+    this.set("transactionHash", Value.fromString(value));
   }
 
   get blockNumber(): BigInt {
@@ -455,17 +468,17 @@ export class TokenAmount extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get token(): Bytes {
+  get token(): string {
     let value = this.get("token");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBytes();
+      return value.toString();
     }
   }
 
-  set token(value: Bytes) {
-    this.set("token", Value.fromBytes(value));
+  set token(value: string) {
+    this.set("token", Value.fromString(value));
   }
 
   get amount(): BigInt {

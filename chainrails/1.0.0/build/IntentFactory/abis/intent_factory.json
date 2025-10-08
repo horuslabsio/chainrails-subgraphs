@@ -69,6 +69,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       }
@@ -147,6 +152,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       }
@@ -225,6 +235,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       }
@@ -323,6 +338,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       },
@@ -407,6 +427,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       },

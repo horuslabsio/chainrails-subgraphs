@@ -10,7 +10,7 @@ export function handleIntentStarted(event: IntentStarted): void {
     const intentAddress = event.params.intentAddr.toHexString();
     const intent = Intent.load(intentAddress);
 
-    if (intent == null) {
+    if (intent === null) {
         return;
     }
 

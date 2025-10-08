@@ -96,6 +96,10 @@ export class IntentFinishedIntentStruct extends ethereum.Tuple {
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
 export class IntentFinishedIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
@@ -108,16 +112,16 @@ export class IntentFinishedIntentBridgeTokenOutOptionsStruct extends ethereum.Tu
   }
 }
 
-export class IntentPrepaid extends ethereum.Event {
-  get params(): IntentPrepaid__Params {
-    return new IntentPrepaid__Params(this);
+export class IntentPrefilled extends ethereum.Event {
+  get params(): IntentPrefilled__Params {
+    return new IntentPrefilled__Params(this);
   }
 }
 
-export class IntentPrepaid__Params {
-  _event: IntentPrepaid;
+export class IntentPrefilled__Params {
+  _event: IntentPrefilled;
 
-  constructor(event: IntentPrepaid) {
+  constructor(event: IntentPrefilled) {
     this._event = event;
   }
 
@@ -206,6 +210,10 @@ export class IntentRefundedIntentStruct extends ethereum.Tuple {
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
 export class IntentRefundedIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
@@ -278,6 +286,10 @@ export class IntentStartedIntentStruct extends ethereum.Tuple {
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
 export class IntentStartedIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
@@ -331,29 +343,6 @@ export class Chainrails extends ethereum.SmartContract {
     let result = super.tryCall(
       "intentFactory",
       "intentFactory():(address)",
-      [],
-    );
-    if (result.reverted) {
-      return new ethereum.CallResult();
-    }
-    let value = result.value;
-    return ethereum.CallResult.fromValue(value[0].toAddress());
-  }
-
-  intentProcessor(): Address {
-    let result = super.call(
-      "intentProcessor",
-      "intentProcessor():(address)",
-      [],
-    );
-
-    return result[0].toAddress();
-  }
-
-  try_intentProcessor(): ethereum.CallResult<Address> {
-    let result = super.tryCall(
-      "intentProcessor",
-      "intentProcessor():(address)",
       [],
     );
     if (result.reverted) {
@@ -425,10 +414,6 @@ export class ConstructorCall__Inputs {
 
   get _intentFactory(): Address {
     return this._call.inputValues[0].value.toAddress();
-  }
-
-  get _intentProcessor(): Address {
-    return this._call.inputValues[1].value.toAddress();
   }
 }
 
@@ -508,6 +493,10 @@ export class ClaimIntentCallIntentStruct extends ethereum.Tuple {
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
 export class ClaimIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
@@ -520,25 +509,25 @@ export class ClaimIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.T
   }
 }
 
-export class PrepayIntentCall extends ethereum.Call {
-  get inputs(): PrepayIntentCall__Inputs {
-    return new PrepayIntentCall__Inputs(this);
+export class PrefillIntentCall extends ethereum.Call {
+  get inputs(): PrefillIntentCall__Inputs {
+    return new PrefillIntentCall__Inputs(this);
   }
 
-  get outputs(): PrepayIntentCall__Outputs {
-    return new PrepayIntentCall__Outputs(this);
+  get outputs(): PrefillIntentCall__Outputs {
+    return new PrefillIntentCall__Outputs(this);
   }
 }
 
-export class PrepayIntentCall__Inputs {
-  _call: PrepayIntentCall;
+export class PrefillIntentCall__Inputs {
+  _call: PrefillIntentCall;
 
-  constructor(call: PrepayIntentCall) {
+  constructor(call: PrefillIntentCall) {
     this._call = call;
   }
 
-  get intent(): PrepayIntentCallIntentStruct {
-    return changetype<PrepayIntentCallIntentStruct>(
+  get intent(): PrefillIntentCallIntentStruct {
+    return changetype<PrefillIntentCallIntentStruct>(
       this._call.inputValues[0].value.toTuple(),
     );
   }
@@ -548,15 +537,15 @@ export class PrepayIntentCall__Inputs {
   }
 }
 
-export class PrepayIntentCall__Outputs {
-  _call: PrepayIntentCall;
+export class PrefillIntentCall__Outputs {
+  _call: PrefillIntentCall;
 
-  constructor(call: PrepayIntentCall) {
+  constructor(call: PrefillIntentCall) {
     this._call = call;
   }
 }
 
-export class PrepayIntentCallIntentStruct extends ethereum.Tuple {
+export class PrefillIntentCallIntentStruct extends ethereum.Tuple {
   get sourceChain(): i32 {
     return this[0].toI32();
   }
@@ -565,8 +554,8 @@ export class PrepayIntentCallIntentStruct extends ethereum.Tuple {
     return this[1].toI32();
   }
 
-  get bridgeTokenOutOptions(): Array<PrepayIntentCallIntentBridgeTokenOutOptionsStruct> {
-    return this[2].toTupleArray<PrepayIntentCallIntentBridgeTokenOutOptionsStruct>();
+  get bridgeTokenOutOptions(): Array<PrefillIntentCallIntentBridgeTokenOutOptionsStruct> {
+    return this[2].toTupleArray<PrefillIntentCallIntentBridgeTokenOutOptionsStruct>();
   }
 
   get destinationRecipient(): Bytes {
@@ -592,9 +581,101 @@ export class PrepayIntentCallIntentStruct extends ethereum.Tuple {
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
-export class PrepayIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
+export class PrefillIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
+  get token(): Address {
+    return this[0].toAddress();
+  }
+
+  get amount(): BigInt {
+    return this[1].toBigInt();
+  }
+}
+
+export class RefundIntentCall extends ethereum.Call {
+  get inputs(): RefundIntentCall__Inputs {
+    return new RefundIntentCall__Inputs(this);
+  }
+
+  get outputs(): RefundIntentCall__Outputs {
+    return new RefundIntentCall__Outputs(this);
+  }
+}
+
+export class RefundIntentCall__Inputs {
+  _call: RefundIntentCall;
+
+  constructor(call: RefundIntentCall) {
+    this._call = call;
+  }
+
+  get intent(): RefundIntentCallIntentStruct {
+    return changetype<RefundIntentCallIntentStruct>(
+      this._call.inputValues[0].value.toTuple(),
+    );
+  }
+
+  get tokens(): Array<Address> {
+    return this._call.inputValues[1].value.toAddressArray();
+  }
+}
+
+export class RefundIntentCall__Outputs {
+  _call: RefundIntentCall;
+
+  constructor(call: RefundIntentCall) {
+    this._call = call;
+  }
+}
+
+export class RefundIntentCallIntentStruct extends ethereum.Tuple {
+  get sourceChain(): i32 {
+    return this[0].toI32();
+  }
+
+  get destinationChain(): i32 {
+    return this[1].toI32();
+  }
+
+  get bridgeTokenOutOptions(): Array<RefundIntentCallIntentBridgeTokenOutOptionsStruct> {
+    return this[2].toTupleArray<RefundIntentCallIntentBridgeTokenOutOptionsStruct>();
+  }
+
+  get destinationRecipient(): Bytes {
+    return this[3].toBytes();
+  }
+
+  get coordinator(): Address {
+    return this[4].toAddress();
+  }
+
+  get bridger(): Address {
+    return this[5].toAddress();
+  }
+
+  get refundAddress(): Address {
+    return this[6].toAddress();
+  }
+
+  get nonce(): BigInt {
+    return this[7].toBigInt();
+  }
+
+  get expirationTimestamp(): BigInt {
+    return this[8].toBigInt();
+  }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
+}
+
+export class RefundIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
   get token(): Address {
     return this[0].toAddress();
   }
@@ -631,8 +712,16 @@ export class StartIntentCall__Inputs {
     return this._call.inputValues[1].value.toAddressArray();
   }
 
+  get depositor(): Address {
+    return this._call.inputValues[2].value.toAddress();
+  }
+
+  get destinationIntentAddress(): Bytes {
+    return this._call.inputValues[3].value.toBytes();
+  }
+
   get bridgeExtraData(): Bytes {
-    return this._call.inputValues[2].value.toBytes();
+    return this._call.inputValues[4].value.toBytes();
   }
 }
 
@@ -679,6 +768,10 @@ export class StartIntentCallIntentStruct extends ethereum.Tuple {
 
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
+  }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
   }
 }
 

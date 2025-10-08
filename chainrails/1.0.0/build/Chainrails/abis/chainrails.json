@@ -6,11 +6,6 @@
         "name": "_intentFactory",
         "type": "address",
         "internalType": "contract IntentFactory"
-      },
-      {
-        "name": "_intentProcessor",
-        "type": "address",
-        "internalType": "contract IntentProcessor"
       }
     ],
     "stateMutability": "nonpayable"
@@ -80,6 +75,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       }
@@ -96,19 +96,6 @@
         "name": "",
         "type": "address",
         "internalType": "contract IntentFactory"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "intentProcessor",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "contract IntentProcessor"
       }
     ],
     "stateMutability": "view"
@@ -153,7 +140,7 @@
   },
   {
     "type": "function",
-    "name": "prepayIntent",
+    "name": "prefillIntent",
     "inputs": [
       {
         "name": "intent",
@@ -216,6 +203,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       },
@@ -223,6 +215,88 @@
         "name": "token",
         "type": "address",
         "internalType": "contract IERC20"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "refundIntent",
+    "inputs": [
+      {
+        "name": "intent",
+        "type": "tuple",
+        "internalType": "struct PayIntent",
+        "components": [
+          {
+            "name": "sourceChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "destinationChain",
+            "type": "uint8",
+            "internalType": "enum Chain"
+          },
+          {
+            "name": "bridgeTokenOutOptions",
+            "type": "tuple[]",
+            "internalType": "struct TokenAmount[]",
+            "components": [
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "contract IERC20"
+              },
+              {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          },
+          {
+            "name": "destinationRecipient",
+            "type": "bytes",
+            "internalType": "bytes"
+          },
+          {
+            "name": "coordinator",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "bridger",
+            "type": "address",
+            "internalType": "contract IBridgeAdapter"
+          },
+          {
+            "name": "refundAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "nonce",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "expirationTimestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      },
+      {
+        "name": "tokens",
+        "type": "address[]",
+        "internalType": "contract IERC20[]"
       }
     ],
     "outputs": [],
@@ -293,6 +367,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       },
@@ -300,6 +379,16 @@
         "name": "paymentTokens",
         "type": "address[]",
         "internalType": "contract IERC20[]"
+      },
+      {
+        "name": "depositor",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "destinationIntentAddress",
+        "type": "bytes",
+        "internalType": "bytes"
       },
       {
         "name": "bridgeExtraData",
@@ -407,6 +496,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       }
@@ -415,7 +509,7 @@
   },
   {
     "type": "event",
-    "name": "IntentPrepaid",
+    "name": "IntentPrefilled",
     "inputs": [
       {
         "name": "intentAddr",
@@ -528,6 +622,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       }
@@ -606,6 +705,11 @@
             "name": "expirationTimestamp",
             "type": "uint256",
             "internalType": "uint256"
+          },
+          {
+            "name": "needsRelay",
+            "type": "bool",
+            "internalType": "bool"
           }
         ]
       }

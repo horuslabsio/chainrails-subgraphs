@@ -12,19 +12,22 @@ export function handleIntentDeclared(event: IntentDeclared): void {
 
     const intent = new Intent(event.params.intentAddress.toHexString());
 
-    intent.intentAddress = event.params.intentAddress;
+    intent.intentAddress = event.params.intentAddress.toHexString();
     intent.sourceChain = event.params.intent.sourceChain;
     intent.destinationChain = event.params.intent.destinationChain;
-    intent.destinationRecipient = event.params.intent.destinationRecipient;
-    intent.coordinator = event.params.intent.coordinator;
-    intent.bridger = event.params.intent.bridger;
-    intent.refundAddress = event.params.intent.refundAddress;
+    intent.destinationRecipient =
+        event.params.intent.destinationRecipient.toHexString();
+    intent.coordinator = event.params.intent.coordinator.toHexString();
+    intent.bridger = event.params.intent.bridger.toHexString();
+    intent.refundAddress = event.params.intent.refundAddress.toHexString();
     intent.nonce = event.params.intent.nonce;
+    intent.needsRelay = event.params.intent.needsRelay;
     intent.expirationTimestamp = event.params.intent.expirationTimestamp;
     intent.status = "DECLARED";
+
     intent.createdAt = event.block.timestamp;
     intent.totalFunded = BigInt.fromI32(0);
-    intent.declarer = event.params.declarer;
+    intent.declarer = event.params.declarer.toHexString();
 
     const tokenAmounts: string[] = [];
     for (let i = 0; i < event.params.intent.bridgeTokenOutOptions.length; i++) {
@@ -32,7 +35,7 @@ export function handleIntentDeclared(event: IntentDeclared): void {
         const tokenAmountId = `${event.params.intentAddress.toHexString()}-${i}`;
 
         const tokenAmount = new TokenAmount(tokenAmountId);
-        tokenAmount.token = tokenOption.token;
+        tokenAmount.token = tokenOption.token.toHexString();
         tokenAmount.amount = tokenOption.amount;
         tokenAmount.intent = intent.id;
         tokenAmount.save();
@@ -61,7 +64,7 @@ export function handleIntentCreated(event: IntentCreated): void {
     }
 
     intent.status = "PENDING";
-    intent.creator = event.params.creator;
+    intent.creator = event.params.creator.toHexString();
 
     intent.save();
 

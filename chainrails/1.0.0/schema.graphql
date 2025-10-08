@@ -1,38 +1,39 @@
 type Intent @entity {
     id: ID!
-    intentAddress: Bytes!
+    intentAddress: String!
     sourceChain: Int!
     destinationChain: Int!
     bridgeTokenOutOptions: [TokenAmount!]!
-    destinationRecipient: Bytes!
-    coordinator: Bytes!
-    bridger: Bytes!
-    refundAddress: Bytes!
+    destinationRecipient: String!
+    coordinator: String!
+    bridger: String!
+    refundAddress: String!
     nonce: BigInt!
     expirationTimestamp: BigInt!
     status: IntentStatus!
+    needsRelay: Boolean
     createdAt: BigInt!
     fundedAt: BigInt
     totalFunded: BigInt! # Total amount funded so far
-    creator: Bytes # Address of the creator (from IntentCreated event)
-    declarer: Bytes # Address of the declarer (from IntentDeclared event)
+    creator: String # Address of the creator (from IntentCreated event)
+    declarer: String # Address of the declarer (from IntentDeclared event)
     fundingTransactions: [FundingTransaction!]! @derivedFrom(field: "intent")
 }
 
 type FundingTransaction @entity {
     id: ID! # tx_hash-log_index
     intent: Intent!
-    token: Bytes!
+    token: String!
     amount: BigInt!
-    sender: Bytes!
-    transactionHash: Bytes!
+    sender: String!
+    transactionHash: String!
     blockNumber: BigInt!
     timestamp: BigInt!
 }
 
 type TokenAmount @entity {
     id: ID!
-    token: Bytes!
+    token: String!
     amount: BigInt!
     intent: Intent!
 }

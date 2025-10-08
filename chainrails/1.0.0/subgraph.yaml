@@ -8,9 +8,9 @@ dataSources:
       name: IntentFactory
       network: base-sepolia
       source:
-          address: "0x661236b29Aec2A6ec44AbC1B2e8cA0be8e571710"
+          address: "0x2F1bEC7A6BAF02C5dD1B1B286C5035486E8cDa00"
           abi: IntentFactory
-          startBlock: 32035819
+          startBlock: 32052380
       mapping:
           kind: ethereum/events
           apiVersion: 0.0.6
@@ -21,9 +21,9 @@ dataSources:
               - name: IntentFactory
                 file: ./abis/intent_factory.json
           eventHandlers:
-              - event: IntentDeclared(indexed address,(uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256),indexed address)
+              - event: IntentDeclared(indexed address,(uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool),indexed address)
                 handler: handleIntentDeclared
-              - event: IntentCreated(indexed address,(uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256),indexed address)
+              - event: IntentCreated(indexed address,(uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool),indexed address)
                 handler: handleIntentCreated
           file: ./mappings/intent-factory.ts
 
@@ -31,9 +31,9 @@ dataSources:
       name: Chainrails
       network: base-sepolia
       source:
-          address: "0xE2a387833C388e6F9F1892B27A991AdcD526Bd72"
+          address: "0xF602115c252131E4848a45BB980Fd2aafac2f30b"
           abi: Chainrails
-          startBlock: 32035819
+          startBlock: 32052380
       mapping:
           kind: ethereum/events
           apiVersion: 0.0.6
@@ -44,7 +44,7 @@ dataSources:
               - name: Chainrails
                 file: ./abis/chainrails.json
           eventHandlers:
-              - event: IntentStarted(indexed address,(uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256))
+              - event: IntentStarted(indexed address,(uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool))
                 handler: handleIntentStarted
           file: ./mappings/chainrails.ts
 
@@ -54,7 +54,7 @@ dataSources:
       source:
           address: "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
           abi: ERC20
-          startBlock: 32035819
+          startBlock: 32052380
       mapping:
           kind: ethereum/events
           apiVersion: 0.0.6

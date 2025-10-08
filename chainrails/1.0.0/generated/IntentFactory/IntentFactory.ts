@@ -74,6 +74,10 @@ export class IntentCreatedIntentStruct extends ethereum.Tuple {
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
 export class IntentCreatedIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
@@ -150,6 +154,10 @@ export class IntentDeclaredIntentStruct extends ethereum.Tuple {
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
 export class IntentDeclaredIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
@@ -197,6 +205,10 @@ export class IntentFactory__createIntentInputIntentStruct extends ethereum.Tuple
 
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
+  }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
   }
 }
 
@@ -246,6 +258,10 @@ export class IntentFactory__declareIntentInputIntentStruct extends ethereum.Tupl
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
 export class IntentFactory__declareIntentInputIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
@@ -294,6 +310,10 @@ export class IntentFactory__getIntentAddressInputIntentStruct extends ethereum.T
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
 export class IntentFactory__getIntentAddressInputIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
@@ -314,7 +334,7 @@ export class IntentFactory extends ethereum.SmartContract {
   createIntent(intent: IntentFactory__createIntentInputIntentStruct): Address {
     let result = super.call(
       "createIntent",
-      "createIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256)):(address)",
+      "createIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
 
@@ -326,7 +346,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "createIntent",
-      "createIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256)):(address)",
+      "createIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {
@@ -341,7 +361,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): Address {
     let result = super.call(
       "declareIntent",
-      "declareIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256)):(address)",
+      "declareIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
 
@@ -353,7 +373,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "declareIntent",
-      "declareIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256)):(address)",
+      "declareIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {
@@ -368,7 +388,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): Address {
     let result = super.call(
       "getIntentAddress",
-      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256)):(address)",
+      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
 
@@ -380,7 +400,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "getIntentAddress",
-      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256)):(address)",
+      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {
@@ -504,6 +524,10 @@ export class CreateIntentCallIntentStruct extends ethereum.Tuple {
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
   }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
+  }
 }
 
 export class CreateIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
@@ -587,6 +611,10 @@ export class DeclareIntentCallIntentStruct extends ethereum.Tuple {
 
   get expirationTimestamp(): BigInt {
     return this[8].toBigInt();
+  }
+
+  get needsRelay(): boolean {
+    return this[9].toBoolean();
   }
 }
 
