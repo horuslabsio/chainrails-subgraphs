@@ -63,7 +63,7 @@ export function handleIntentCreated(event: IntentCreated): void {
         return;
     }
 
-    intent.status = "INITIATED";
+    intent.status = "PENDING";
     intent.creator = event.params.creator.toHexString();
 
     intent.save();
