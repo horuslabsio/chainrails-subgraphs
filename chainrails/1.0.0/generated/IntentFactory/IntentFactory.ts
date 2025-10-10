@@ -334,7 +334,7 @@ export class IntentFactory extends ethereum.SmartContract {
   createIntent(intent: IntentFactory__createIntentInputIntentStruct): Address {
     let result = super.call(
       "createIntent",
-      "createIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
+      "createIntent((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
 
@@ -346,7 +346,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "createIntent",
-      "createIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
+      "createIntent((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {
@@ -361,7 +361,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): Address {
     let result = super.call(
       "declareIntent",
-      "declareIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
+      "declareIntent((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
 
@@ -373,7 +373,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "declareIntent",
-      "declareIntent((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
+      "declareIntent((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {
@@ -388,7 +388,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): Address {
     let result = super.call(
       "getIntentAddress",
-      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
+      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
 
@@ -400,7 +400,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "getIntentAddress",
-      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes,address,address,address,uint256,uint256,bool)):(address)",
+      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {

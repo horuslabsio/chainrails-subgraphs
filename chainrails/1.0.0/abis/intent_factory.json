@@ -42,8 +42,8 @@
                     },
                     {
                         "name": "destinationRecipient",
-                        "type": "bytes",
-                        "internalType": "bytes"
+                        "type": "bytes32",
+                        "internalType": "bytes32"
                     },
                     {
                         "name": "coordinator",
@@ -125,8 +125,8 @@
                     },
                     {
                         "name": "destinationRecipient",
-                        "type": "bytes",
-                        "internalType": "bytes"
+                        "type": "bytes32",
+                        "internalType": "bytes32"
                     },
                     {
                         "name": "coordinator",
@@ -208,8 +208,8 @@
                     },
                     {
                         "name": "destinationRecipient",
-                        "type": "bytes",
-                        "internalType": "bytes"
+                        "type": "bytes32",
+                        "internalType": "bytes32"
                     },
                     {
                         "name": "coordinator",
@@ -307,8 +307,8 @@
                     },
                     {
                         "name": "destinationRecipient",
-                        "type": "bytes",
-                        "internalType": "bytes"
+                        "type": "bytes32",
+                        "internalType": "bytes32"
                     },
                     {
                         "name": "coordinator",
@@ -396,8 +396,8 @@
                     },
                     {
                         "name": "destinationRecipient",
-                        "type": "bytes",
-                        "internalType": "bytes"
+                        "type": "bytes32",
+                        "internalType": "bytes32"
                     },
                     {
                         "name": "coordinator",

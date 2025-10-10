@@ -535,6 +535,10 @@ export class PrefillIntentCall__Inputs {
   get token(): Address {
     return this._call.inputValues[1].value.toAddress();
   }
+
+  get relayer(): Address {
+    return this._call.inputValues[2].value.toAddress();
+  }
 }
 
 export class PrefillIntentCall__Outputs {

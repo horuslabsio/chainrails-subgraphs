@@ -39,10 +39,8 @@ type TokenAmount @entity {
 }
 
 enum IntentStatus {
-    DECLARED
     PENDING
     FUNDED
     INITIATED
-    BRIDGING
     COMPLETED
 }

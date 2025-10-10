@@ -1,7 +1,4 @@
-import {
-    IntentDeclared,
-    IntentCreated
-} from "../generated/IntentFactory/IntentFactory";
+import { IntentDeclared } from "../generated/IntentFactory/IntentFactory";
 import { Intent, TokenAmount } from "../generated/schema";
 import { BigInt, log } from "@graphprotocol/graph-ts";
 
@@ -23,7 +20,7 @@ export function handleIntentDeclared(event: IntentDeclared): void {
     intent.nonce = event.params.intent.nonce;
     intent.needsRelay = event.params.intent.needsRelay;
     intent.expirationTimestamp = event.params.intent.expirationTimestamp;
-    intent.status = "DECLARED";
+    intent.status = "PENDING";
 
     intent.createdAt = event.block.timestamp;
     intent.totalFunded = BigInt.fromI32(0);
@@ -47,28 +44,6 @@ export function handleIntentDeclared(event: IntentDeclared): void {
     intent.save();
 
     log.info("Handled IntentDeclared event with intent address: {}", [
-        event.params.intentAddress.toHexString()
-    ]);
-}
-
-export function handleIntentCreated(event: IntentCreated): void {
-    log.info("Detected IntentCreated event with intent address: {}", [
-        event.params.intentAddress.toHexString()
-    ]);
-
-    const intentAddress = event.params.intentAddress.toHexString();
-    const intent = Intent.load(intentAddress);
-
-    if (intent == null) {
-        return;
-    }
-
-    intent.status = "PENDING";
-    intent.creator = event.params.creator.toHexString();
-
-    intent.save();
-
-    log.info("Handled IntentCreated event with intent address: {}", [
         event.params.intentAddress.toHexString()
     ]);
 }

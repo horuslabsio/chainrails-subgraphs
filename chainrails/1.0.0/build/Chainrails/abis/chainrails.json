@@ -48,8 +48,8 @@
           },
           {
             "name": "destinationRecipient",
-            "type": "bytes",
-            "internalType": "bytes"
+            "type": "bytes32",
+            "internalType": "bytes32"
           },
           {
             "name": "coordinator",
@@ -176,8 +176,8 @@
           },
           {
             "name": "destinationRecipient",
-            "type": "bytes",
-            "internalType": "bytes"
+            "type": "bytes32",
+            "internalType": "bytes32"
           },
           {
             "name": "coordinator",
@@ -215,6 +215,11 @@
         "name": "token",
         "type": "address",
         "internalType": "contract IERC20"
+      },
+      {
+        "name": "relayer",
+        "type": "address",
+        "internalType": "address"
       }
     ],
     "outputs": [],
@@ -258,8 +263,8 @@
           },
           {
             "name": "destinationRecipient",
-            "type": "bytes",
-            "internalType": "bytes"
+            "type": "bytes32",
+            "internalType": "bytes32"
           },
           {
             "name": "coordinator",
@@ -340,8 +345,8 @@
           },
           {
             "name": "destinationRecipient",
-            "type": "bytes",
-            "internalType": "bytes"
+            "type": "bytes32",
+            "internalType": "bytes32"
           },
           {
             "name": "coordinator",
@@ -387,8 +392,8 @@
       },
       {
         "name": "destinationIntentAddress",
-        "type": "bytes",
-        "internalType": "bytes"
+        "type": "bytes32",
+        "internalType": "bytes32"
       },
       {
         "name": "bridgeExtraData",
@@ -469,8 +474,8 @@
           },
           {
             "name": "destinationRecipient",
-            "type": "bytes",
-            "internalType": "bytes"
+            "type": "bytes32",
+            "internalType": "bytes32"
           },
           {
             "name": "coordinator",
@@ -595,8 +600,8 @@
           },
           {
             "name": "destinationRecipient",
-            "type": "bytes",
-            "internalType": "bytes"
+            "type": "bytes32",
+            "internalType": "bytes32"
           },
           {
             "name": "coordinator",
@@ -678,8 +683,8 @@
           },
           {
             "name": "destinationRecipient",
-            "type": "bytes",
-            "internalType": "bytes"
+            "type": "bytes32",
+            "internalType": "bytes32"
           },
           {
             "name": "coordinator",
