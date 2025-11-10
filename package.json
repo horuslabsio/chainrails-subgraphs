@@ -1,0 +1,31 @@
+{
+    "name": "chainrails-subgraph",
+    "version": "1.0.0",
+    "description": "Chainrails subgraph for monitoring intent funding",
+    "main": "index.js",
+    "scripts": {
+        "prepare": "node scripts/generate-subgraph.js",
+        "prepare:base-sepolia": "node scripts/generate-subgraph.js testnet base-sepolia",
+        "prepare:base-mainnet": "node scripts/generate-subgraph.js base-mainnet",
+        "prepare:arbitrum-sepolia": "node scripts/generate-subgraph.js testnet arbitrum-sepolia",
+        "prepare:arbitrum-one": "node scripts/generate-subgraph.js arbitrum-one",
+        "codegen": "graph codegen",
+        "build": "graph build",
+        "build:base-sepolia": "yarn prepare:base-sepolia && yarn codegen && yarn build",
+        "build:base-mainnet": "yarn prepare:base-mainnet && yarn codegen && yarn build",
+        "build:arbitrum-sepolia": "yarn prepare:arbitrum-sepolia && yarncodegen && yarn build",
+        "build:arbitrum-one": "yarn prepare:arbitrum-one && yarn codegen && yarn build",
+        "deploy:base-sepolia": "yarn build:base-sepolia && goldsky subgraph deploy chainrails/1.0.0 --path ./build",
+        "deploy:base-mainnet": "yarn build:base-mainnet && goldsky subgraph deploy chainrails/1.0.0 --path ./build",
+        "deploy:arbitrum-sepolia": "yarn build:arbitrum-sepolia && goldsky subgraph deploy chainrails/1.0.0 --path ./build",
+        "deploy:arbitrum-one": "yarn build:arbitrum-one && goldsky subgraph deploy chainrails/1.0.0 --path ./build"
+    },
+    "dependencies": {
+        "@graphprotocol/graph-cli": "0.67.4",
+        "@graphprotocol/graph-ts": "0.32.0",
+        "mustache": "^4.2.0"
+    },
+    "devDependencies": {
+        "matchstick-as": "0.5.0"
+    }
+}

@@ -1,17 +1,21 @@
 import { IntentDeclared } from "../generated/IntentFactory/IntentFactory";
 import { Intent, TokenAmount } from "../generated/schema";
-import { BigInt, log } from "@graphprotocol/graph-ts";
+import { BigInt, log, dataSource } from "@graphprotocol/graph-ts";
 
 export function handleIntentDeclared(event: IntentDeclared): void {
     log.info("Detected IntentDeclared event with intent address: {}", [
         event.params.intentAddress.toHexString()
     ]);
 
+    const context = dataSource.context();
+    const chainId = context.get("chainId")!.toI32();
+
     const intent = new Intent(event.params.intentAddress.toHexString());
 
     intent.intentAddress = event.params.intentAddress.toHexString();
     intent.sourceChain = event.params.intent.sourceChain;
     intent.destinationChain = event.params.intent.destinationChain;
+    intent.chainId = chainId;
     intent.destinationRecipient =
         event.params.intent.destinationRecipient.toHexString();
     intent.coordinator = event.params.intent.coordinator.toHexString();
@@ -20,11 +24,9 @@ export function handleIntentDeclared(event: IntentDeclared): void {
     intent.nonce = event.params.intent.nonce;
     intent.needsRelay = event.params.intent.needsRelay;
     intent.expirationTimestamp = event.params.intent.expirationTimestamp;
+    intent.metadata = event.params.intent.metadata.toHexString();
     intent.status = "PENDING";
-
-    intent.createdAt = event.block.timestamp;
     intent.totalFunded = BigInt.fromI32(0);
-    intent.declarer = event.params.declarer.toHexString();
 
     const tokenAmounts: string[] = [];
     for (let i = 0; i < event.params.intent.bridgeTokenOutOptions.length; i++) {

@@ -1,8 +1,11 @@
-import { FundingTransaction, Intent, TokenAmount } from "../generated/schema";
-import { BigInt, log } from "@graphprotocol/graph-ts";
+import { FundingTransaction, Intent } from "../generated/schema";
+import { log, dataSource } from "@graphprotocol/graph-ts";
 import { Transfer } from "../generated/USDC/ERC20";
 
 export function handleUSDCTransfer(event: Transfer): void {
+    const context = dataSource.context();
+    const chainId = context.get("chainId")!.toI32();
+
     const intentAddress = event.params.to.toHexString();
     const intent = Intent.load(intentAddress);
 
@@ -22,14 +25,10 @@ export function handleUSDCTransfer(event: Transfer): void {
     fundingTx.intent = intent.id;
     fundingTx.token = event.address.toHexString();
     fundingTx.amount = event.params.value;
-    fundingTx.sender = event.params.from.toHexString();
-    fundingTx.transactionHash = event.transaction.hash.toHexString();
-    fundingTx.blockNumber = event.block.number;
-    fundingTx.timestamp = event.block.timestamp;
     fundingTx.save();
 
     intent.status = "FUNDED";
-    intent.fundedAt = event.block.timestamp;
+    intent.chainId = chainId;
     intent.totalFunded = intent.totalFunded.plus(event.params.value);
 
     intent.save();

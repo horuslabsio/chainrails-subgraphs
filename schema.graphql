@@ -3,6 +3,7 @@ type Intent @entity {
     intentAddress: String!
     sourceChain: Int!
     destinationChain: Int!
+    chainId: Int!
     bridgeTokenOutOptions: [TokenAmount!]!
     destinationRecipient: String!
     coordinator: String!
@@ -10,13 +11,10 @@ type Intent @entity {
     refundAddress: String!
     nonce: BigInt!
     expirationTimestamp: BigInt!
-    status: IntentStatus!
     needsRelay: Boolean
-    createdAt: BigInt!
-    fundedAt: BigInt
-    totalFunded: BigInt! # Total amount funded so far
-    creator: String # Address of the creator (from IntentCreated event)
-    declarer: String # Address of the declarer (from IntentDeclared event)
+    metadata: String!
+    status: IntentStatus!
+    totalFunded: BigInt!
     fundingTransactions: [FundingTransaction!]! @derivedFrom(field: "intent")
 }
 
@@ -25,10 +23,6 @@ type FundingTransaction @entity {
     intent: Intent!
     token: String!
     amount: BigInt!
-    sender: String!
-    transactionHash: String!
-    blockNumber: BigInt!
-    timestamp: BigInt!
 }
 
 type TokenAmount @entity {
@@ -40,7 +34,8 @@ type TokenAmount @entity {
 
 enum IntentStatus {
     PENDING
-    FUNDED
+    SOURCE_FUNDED
     INITIATED
+    DESTINATION_FUNDED
     COMPLETED
 }

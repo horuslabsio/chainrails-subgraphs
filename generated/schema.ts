@@ -89,6 +89,19 @@ export class Intent extends Entity {
     this.set("destinationChain", Value.fromI32(value));
   }
 
+  get chainId(): i32 {
+    let value = this.get("chainId");
+    if (!value || value.kind == ValueKind.NULL) {
+      return 0;
+    } else {
+      return value.toI32();
+    }
+  }
+
+  set chainId(value: i32) {
+    this.set("chainId", Value.fromI32(value));
+  }
+
   get bridgeTokenOutOptions(): Array<string> {
     let value = this.get("bridgeTokenOutOptions");
     if (!value || value.kind == ValueKind.NULL) {
@@ -180,19 +193,6 @@ export class Intent extends Entity {
     this.set("expirationTimestamp", Value.fromBigInt(value));
   }
 
-  get status(): string {
-    let value = this.get("status");
-    if (!value || value.kind == ValueKind.NULL) {
-      throw new Error("Cannot return null for a required field.");
-    } else {
-      return value.toString();
-    }
-  }
-
-  set status(value: string) {
-    this.set("status", Value.fromString(value));
-  }
-
   get needsRelay(): boolean {
     let value = this.get("needsRelay");
     if (!value || value.kind == ValueKind.NULL) {
@@ -206,34 +206,30 @@ export class Intent extends Entity {
     this.set("needsRelay", Value.fromBoolean(value));
   }
 
-  get createdAt(): BigInt {
-    let value = this.get("createdAt");
+  get metadata(): string {
+    let value = this.get("metadata");
     if (!value || value.kind == ValueKind.NULL) {
       throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBigInt();
+      return value.toString();
     }
   }
 
-  set createdAt(value: BigInt) {
-    this.set("createdAt", Value.fromBigInt(value));
+  set metadata(value: string) {
+    this.set("metadata", Value.fromString(value));
   }
 
-  get fundedAt(): BigInt | null {
-    let value = this.get("fundedAt");
+  get status(): string {
+    let value = this.get("status");
     if (!value || value.kind == ValueKind.NULL) {
-      return null;
+      throw new Error("Cannot return null for a required field.");
     } else {
-      return value.toBigInt();
+      return value.toString();
     }
   }
 
-  set fundedAt(value: BigInt | null) {
-    if (!value) {
-      this.unset("fundedAt");
-    } else {
-      this.set("fundedAt", Value.fromBigInt(<BigInt>value));
-    }
+  set status(value: string) {
+    this.set("status", Value.fromString(value));
   }
 
   get totalFunded(): BigInt {
@@ -247,40 +243,6 @@ export class Intent extends Entity {
 
   set totalFunded(value: BigInt) {
     this.set("totalFunded", Value.fromBigInt(value));
-  }
-
-  get creator(): string | null {
-    let value = this.get("creator");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toString();
-    }
-  }
-
-  set creator(value: string | null) {
-    if (!value) {
-      this.unset("creator");
-    } else {
-      this.set("creator", Value.fromString(<string>value));
-    }
-  }
-
-  get declarer(): string | null {
-    let value = this.get("declarer");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toString();
-    }
-  }
-
-  set declarer(value: string | null) {
-    if (!value) {
-      this.unset("declarer");
-    } else {
-      this.set("declarer", Value.fromString(<string>value));
-    }
   }
 
   get fundingTransactions(): FundingTransactionLoader {
@@ -372,58 +334,6 @@ export class FundingTransaction extends Entity {
 
   set amount(value: BigInt) {
     this.set("amount", Value.fromBigInt(value));
-  }
-
-  get sender(): string {
-    let value = this.get("sender");
-    if (!value || value.kind == ValueKind.NULL) {
-      throw new Error("Cannot return null for a required field.");
-    } else {
-      return value.toString();
-    }
-  }
-
-  set sender(value: string) {
-    this.set("sender", Value.fromString(value));
-  }
-
-  get transactionHash(): string {
-    let value = this.get("transactionHash");
-    if (!value || value.kind == ValueKind.NULL) {
-      throw new Error("Cannot return null for a required field.");
-    } else {
-      return value.toString();
-    }
-  }
-
-  set transactionHash(value: string) {
-    this.set("transactionHash", Value.fromString(value));
-  }
-
-  get blockNumber(): BigInt {
-    let value = this.get("blockNumber");
-    if (!value || value.kind == ValueKind.NULL) {
-      throw new Error("Cannot return null for a required field.");
-    } else {
-      return value.toBigInt();
-    }
-  }
-
-  set blockNumber(value: BigInt) {
-    this.set("blockNumber", Value.fromBigInt(value));
-  }
-
-  get timestamp(): BigInt {
-    let value = this.get("timestamp");
-    if (!value || value.kind == ValueKind.NULL) {
-      throw new Error("Cannot return null for a required field.");
-    } else {
-      return value.toBigInt();
-    }
-  }
-
-  set timestamp(value: BigInt) {
-    this.set("timestamp", Value.fromBigInt(value));
   }
 }
 

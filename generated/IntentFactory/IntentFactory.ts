@@ -78,11 +78,15 @@ export class IntentCreatedIntentStruct extends ethereum.Tuple {
   get needsRelay(): boolean {
     return this[9].toBoolean();
   }
+
+  get metadata(): Bytes {
+    return this[10].toBytes();
+  }
 }
 
 export class IntentCreatedIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
-  get token(): Address {
-    return this[0].toAddress();
+  get token(): Bytes {
+    return this[0].toBytes();
   }
 
   get amount(): BigInt {
@@ -158,11 +162,15 @@ export class IntentDeclaredIntentStruct extends ethereum.Tuple {
   get needsRelay(): boolean {
     return this[9].toBoolean();
   }
+
+  get metadata(): Bytes {
+    return this[10].toBytes();
+  }
 }
 
 export class IntentDeclaredIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
-  get token(): Address {
-    return this[0].toAddress();
+  get token(): Bytes {
+    return this[0].toBytes();
   }
 
   get amount(): BigInt {
@@ -210,11 +218,15 @@ export class IntentFactory__createIntentInputIntentStruct extends ethereum.Tuple
   get needsRelay(): boolean {
     return this[9].toBoolean();
   }
+
+  get metadata(): Bytes {
+    return this[10].toBytes();
+  }
 }
 
 export class IntentFactory__createIntentInputIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
-  get token(): Address {
-    return this[0].toAddress();
+  get token(): Bytes {
+    return this[0].toBytes();
   }
 
   get amount(): BigInt {
@@ -262,11 +274,15 @@ export class IntentFactory__declareIntentInputIntentStruct extends ethereum.Tupl
   get needsRelay(): boolean {
     return this[9].toBoolean();
   }
+
+  get metadata(): Bytes {
+    return this[10].toBytes();
+  }
 }
 
 export class IntentFactory__declareIntentInputIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
-  get token(): Address {
-    return this[0].toAddress();
+  get token(): Bytes {
+    return this[0].toBytes();
   }
 
   get amount(): BigInt {
@@ -314,11 +330,15 @@ export class IntentFactory__getIntentAddressInputIntentStruct extends ethereum.T
   get needsRelay(): boolean {
     return this[9].toBoolean();
   }
+
+  get metadata(): Bytes {
+    return this[10].toBytes();
+  }
 }
 
 export class IntentFactory__getIntentAddressInputIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
-  get token(): Address {
-    return this[0].toAddress();
+  get token(): Bytes {
+    return this[0].toBytes();
   }
 
   get amount(): BigInt {
@@ -334,7 +354,7 @@ export class IntentFactory extends ethereum.SmartContract {
   createIntent(intent: IntentFactory__createIntentInputIntentStruct): Address {
     let result = super.call(
       "createIntent",
-      "createIntent((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
+      "createIntent((uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
 
@@ -346,7 +366,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "createIntent",
-      "createIntent((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
+      "createIntent((uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {
@@ -361,7 +381,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): Address {
     let result = super.call(
       "declareIntent",
-      "declareIntent((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
+      "declareIntent((uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
 
@@ -373,7 +393,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "declareIntent",
-      "declareIntent((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
+      "declareIntent((uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {
@@ -388,7 +408,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): Address {
     let result = super.call(
       "getIntentAddress",
-      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
+      "getIntentAddress((uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
 
@@ -400,7 +420,7 @@ export class IntentFactory extends ethereum.SmartContract {
   ): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "getIntentAddress",
-      "getIntentAddress((uint8,uint8,(address,uint256)[],bytes32,address,address,address,uint256,uint256,bool)):(address)",
+      "getIntentAddress((uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes)):(address)",
       [ethereum.Value.fromTuple(intent)],
     );
     if (result.reverted) {
@@ -528,11 +548,15 @@ export class CreateIntentCallIntentStruct extends ethereum.Tuple {
   get needsRelay(): boolean {
     return this[9].toBoolean();
   }
+
+  get metadata(): Bytes {
+    return this[10].toBytes();
+  }
 }
 
 export class CreateIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
-  get token(): Address {
-    return this[0].toAddress();
+  get token(): Bytes {
+    return this[0].toBytes();
   }
 
   get amount(): BigInt {
@@ -616,11 +640,15 @@ export class DeclareIntentCallIntentStruct extends ethereum.Tuple {
   get needsRelay(): boolean {
     return this[9].toBoolean();
   }
+
+  get metadata(): Bytes {
+    return this[10].toBytes();
+  }
 }
 
 export class DeclareIntentCallIntentBridgeTokenOutOptionsStruct extends ethereum.Tuple {
-  get token(): Address {
-    return this[0].toAddress();
+  get token(): Bytes {
+    return this[0].toBytes();
   }
 
   get amount(): BigInt {
