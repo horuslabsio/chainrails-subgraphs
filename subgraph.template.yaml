@@ -13,9 +13,9 @@ dataSources:
           abi: IntentFactory
           # prettier-ignore
           startBlock: {{startBlock}}
-      context:
-          # prettier-ignore
-          chainId: {{chainId}}
+      # context:
+      #     # prettier-ignore
+      #     chainId: "{{chainId}}"
       mapping:
           kind: ethereum/events
           apiVersion: 0.0.6
@@ -39,9 +39,9 @@ dataSources:
           abi: ERC20
           # prettier-ignore
           startBlock: {{startBlock}}
-      context:
-          # prettier-ignore
-          chainId: {{chainId}}
+      # context:
+      #     # prettier-ignore
+      #     chainId: "{{chainId}}"
       mapping:
           kind: ethereum/events
           apiVersion: 0.0.6

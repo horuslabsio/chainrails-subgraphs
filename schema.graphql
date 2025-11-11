@@ -3,7 +3,6 @@ type Intent @entity {
     intentAddress: String!
     sourceChain: Int!
     destinationChain: Int!
-    chainId: Int!
     bridgeTokenOutOptions: [TokenAmount!]!
     destinationRecipient: String!
     coordinator: String!
@@ -23,6 +22,7 @@ type FundingTransaction @entity {
     intent: Intent!
     token: String!
     amount: BigInt!
+    chainId: Int!
 }
 
 type TokenAmount @entity {
@@ -34,8 +34,7 @@ type TokenAmount @entity {
 
 enum IntentStatus {
     PENDING
-    SOURCE_FUNDED
+    FUNDED
     INITIATED
-    DESTINATION_FUNDED
     COMPLETED
 }

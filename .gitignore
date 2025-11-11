@@ -144,3 +144,5 @@ goldsky_api_key.txt
 # Auto-generated subgraph files (generated from subgraph.template.yaml)
 **/subgraph.yaml
 !**/subgraph.template.yaml
+build/
+generated/

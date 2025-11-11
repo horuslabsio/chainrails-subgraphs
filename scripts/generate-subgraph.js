@@ -27,13 +27,13 @@ if (!config["networks"][targetChain]) {
     process.exit(1);
 }
 
-// Prepare template data
+// Prepare template data - convert numbers to strings for Goldsky compatibility
 const templateData = {
     network: targetChain,
     intentFactory: config.intentFactory,
     startBlock: config["networks"][targetChain].startBlock,
     usdcAddress: config["networks"][targetChain].usdcAddress,
-    chainId: config["networks"][targetChain].chainId
+    chainId: String(config["networks"][targetChain].chainId)
 };
 
 // Generate subgraph.yaml
