@@ -23,8 +23,20 @@ export function getChainIdFromNetwork(): BigInt {
         return BigInt.fromI32(43113);
     }
 
+    if (network == "avalanche") {
+        return BigInt.fromI32(43114);
+    }
+
+    if (network == "sepolia") {
+        return BigInt.fromI32(11155111);
+    }
+
     if (network == "mainnet") {
         return BigInt.fromI32(1);
+    }
+
+    if (network == "bsc") {
+        return BigInt.fromI32(56);
     }
 
     return BigInt.zero();
