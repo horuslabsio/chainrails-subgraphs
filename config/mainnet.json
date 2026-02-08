@@ -1,31 +1,128 @@
 {
     "network": "mainnet",
-    "intentFactory": "0x1fc2F4fED248add9d31168Bf8Adde3762943b105",
+    "intentFactory": "0x2Bc2E94c53f78a6393F70700E004fa0311ede5F8",
     "networks": {
         "arbitrum-one": {
             "chainId": 42161,
-            "startBlock": 399181630,
-            "usdcAddress": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+            "startBlock": 428842449,
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+                },
+                {
+                    "symbol": "USDT",
+                    "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+                },
+                {
+                    "symbol": "DAI",
+                    "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1"
+                },
+                {
+                    "symbol": "WETH",
+                    "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+                }
+            ]
         },
         "avalanche": {
             "chainId": 43114,
             "startBlock": 71799634,
-            "usdcAddress": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+                },
+                {
+                    "symbol": "USDT",
+                    "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7"
+                },
+                {
+                    "symbol": "DAI",
+                    "address": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70"
+                },
+                {
+                    "symbol": "WETH",
+                    "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB"
+                }
+            ]
         },
         "base": {
             "chainId": 8453,
             "startBlock": 38043972,
-            "usdcAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+                },
+                {
+                    "symbol": "DAI",
+                    "address": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb"
+                },
+                {
+                    "symbol": "EURC",
+                    "address": "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42"
+                },
+                {
+                    "symbol": "WETH",
+                    "address": "0x4200000000000000000000000000000000000006"
+                }
+            ]
         },
         "bsc": {
             "chainId": 56,
             "startBlock": 67835202,
-            "usdcAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
+                },
+                {
+                    "symbol": "USDT",
+                    "address": "0x55d398326f99059fF775485246999027B3197955"
+                },
+                {
+                    "symbol": "DAI",
+                    "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3"
+                },
+                {
+                    "symbol": "BUSD",
+                    "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
+                }
+            ]
         },
         "mainnet": {
             "chainId": 1,
             "startBlock": 23777089,
-            "usdcAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+                },
+                {
+                    "symbol": "USDT",
+                    "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+                },
+                {
+                    "symbol": "DAI",
+                    "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+                },
+                {
+                    "symbol": "BUSD",
+                    "address": "0x4Fabb145d64652a948d72533023f6E7A623C7C53"
+                },
+                {
+                    "symbol": "EURC",
+                    "address": "0x1aBaEA1f7C830bD89Acc67eC4af516284b1bC33c"
+                },
+                {
+                    "symbol": "WETH",
+                    "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+                },
+                {
+                    "symbol": "STRK",
+                    "address": "0xCa14007Eff0dB1f8135f4C25B34De49AB0d42766"
+                }
+            ]
         }
     }
 }

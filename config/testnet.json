@@ -1,26 +1,46 @@
 {
     "network": "testnet",
-    "intentFactory": "0x1fc2F4fED248add9d31168Bf8Adde3762943b105",
+    "intentFactory": "0x2Bc2E94c53f78a6393F70700E004fa0311ede5F8",
     "networks": {
         "arbitrum-sepolia": {
             "chainId": 421614,
             "startBlock": 214099172,
-            "usdcAddress": "0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d"
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d"
+                }
+            ]
         },
         "avalanche-testnet": {
             "chainId": 43113,
             "startBlock": 47540969,
-            "usdcAddress": "0x5425890298aed601595a70AB815c96711a31Bc65"
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0x5425890298aed601595a70AB815c96711a31Bc65"
+                }
+            ]
         },
         "base-sepolia": {
             "chainId": 84532,
             "startBlock": 33546061,
-            "usdcAddress": "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+                }
+            ]
         },
         "sepolia": {
             "chainId": 11155111,
             "startBlock": 9540455,
-            "usdcAddress": "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238"
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238"
+                }
+            ]
         }
     }
 }

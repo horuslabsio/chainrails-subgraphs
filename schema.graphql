@@ -20,9 +20,10 @@ type Intent @entity {
 type FundingTransaction @entity {
     id: ID! # tx_hash-log_index
     intent: Intent!
-    token: String!
+    token: Token!
     amount: BigInt!
     chainId: Int!
+    tokenAddress: String! # Keep for backward compatibility and easy querying
 }
 
 type TokenAmount @entity {
@@ -30,6 +31,16 @@ type TokenAmount @entity {
     token: String!
     amount: BigInt!
     intent: Intent!
+}
+
+type Token @entity {
+    id: ID! # token address
+    address: String!
+    symbol: String
+    name: String
+    decimals: Int
+    chainId: Int!
+    fundingTransactions: [FundingTransaction!]! @derivedFrom(field: "token")
 }
 
 enum IntentStatus {

@@ -27,13 +27,42 @@ if (!config["networks"][targetChain]) {
     process.exit(1);
 }
 
+const chainConfig = config["networks"][targetChain];
+
+// Get tokens array - support both old format (usdcAddress) and new format (tokens array)
+let tokens = [];
+if (chainConfig.tokens && Array.isArray(chainConfig.tokens)) {
+    // New format: tokens array - include network in each token for Mustache template
+    tokens = chainConfig.tokens.map(token => ({
+        ...token,
+        network: targetChain,
+        startBlock: chainConfig.startBlock,
+        chainId: String(chainConfig.chainId)
+    }));
+} else if (chainConfig.usdcAddress) {
+    // Old format: single USDC address (backward compatibility)
+    tokens = [
+        {
+            symbol: "USDC",
+            address: chainConfig.usdcAddress,
+            network: targetChain,
+            startBlock: chainConfig.startBlock,
+            chainId: String(chainConfig.chainId)
+        }
+    ];
+} else {
+    console.warn(
+        `⚠️  No tokens found for chain "${targetChain}". Using empty tokens array.`
+    );
+}
+
 // Prepare template data - convert numbers to strings for Goldsky compatibility
 const templateData = {
     network: targetChain,
     intentFactory: config.intentFactory,
-    startBlock: config["networks"][targetChain].startBlock,
-    usdcAddress: config["networks"][targetChain].usdcAddress,
-    chainId: String(config["networks"][targetChain].chainId)
+    startBlock: chainConfig.startBlock,
+    chainId: String(chainConfig.chainId),
+    tokens: tokens
 };
 
 // Generate subgraph.yaml
@@ -44,4 +73,11 @@ fs.writeFileSync(outputPath, output, "utf8");
 
 console.log(`✅ Generated subgraph.yaml for ${targetChain}`);
 console.log(`📝 Configuration used:`);
-console.log(JSON.stringify(templateData, null, 2));
+console.log(`   Network: ${targetChain}`);
+console.log(`   Intent Factory: ${config.intentFactory}`);
+console.log(`   Start Block: ${chainConfig.startBlock}`);
+console.log(`   Chain ID: ${chainConfig.chainId}`);
+console.log(`   Tokens: ${tokens.length} token(s)`);
+tokens.forEach((token, index) => {
+    console.log(`     ${index + 1}. ${token.symbol}: ${token.address}`);
+});

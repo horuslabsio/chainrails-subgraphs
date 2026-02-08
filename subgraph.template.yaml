@@ -29,13 +29,13 @@ dataSources:
               - event: IntentDeclared(indexed address,(uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes),indexed address)
                 handler: handleIntentDeclared
           file: ./mappings/intent-factory.ts
-
+{{#tokens}}
     - kind: ethereum/contract
-      name: USDC
+      name: {{symbol}}
       # prettier-ignore
       network: {{network}}
       source:
-          address: "{{usdcAddress}}"
+          address: "{{address}}"
           abi: ERC20
           # prettier-ignore
           startBlock: {{startBlock}}
@@ -49,10 +49,12 @@ dataSources:
           entities:
               - Intent
               - FundingTransaction
+              - Token
           abis:
               - name: ERC20
                 file: ./abis/erc20.json
           eventHandlers:
               - event: Transfer(indexed address,indexed address,uint256)
-                handler: handleUSDCTransfer
+                handler: handleERC20Transfer
           file: ./mappings/erc20.ts
+{{/tokens}}
