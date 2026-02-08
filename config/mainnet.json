@@ -26,7 +26,7 @@
         },
         "avalanche": {
             "chainId": 43114,
-            "startBlock": 71799634,
+            "startBlock": 77576547,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -48,7 +48,7 @@
         },
         "base": {
             "chainId": 8453,
-            "startBlock": 38043972,
+            "startBlock": 41887793,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -70,7 +70,7 @@
         },
         "bsc": {
             "chainId": 56,
-            "startBlock": 67835202,
+            "startBlock": 80043139,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -92,7 +92,7 @@
         },
         "mainnet": {
             "chainId": 1,
-            "startBlock": 23777089,
+            "startBlock": 24412995,
             "tokens": [
                 {
                     "symbol": "USDC",

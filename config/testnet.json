@@ -14,7 +14,7 @@
         },
         "avalanche-testnet": {
             "chainId": 43113,
-            "startBlock": 47540969,
+            "startBlock": 51629276,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -24,7 +24,7 @@
         },
         "base-sepolia": {
             "chainId": 84532,
-            "startBlock": 33546061,
+            "startBlock": 37398338,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -34,7 +34,7 @@
         },
         "sepolia": {
             "chainId": 11155111,
-            "startBlock": 9540455,
+            "startBlock": 10218363,
             "tokens": [
                 {
                     "symbol": "USDC",
