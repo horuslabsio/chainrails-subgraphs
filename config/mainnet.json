@@ -48,7 +48,7 @@
         },
         "base": {
             "chainId": 8453,
-            "startBlock": 41887793,
+            "startBlock": 42003929,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -70,7 +70,7 @@
         },
         "bsc": {
             "chainId": 56,
-            "startBlock": 80043139,
+            "startBlock": 80560685,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -92,7 +92,7 @@
         },
         "mainnet": {
             "chainId": 1,
-            "startBlock": 24412995,
+            "startBlock": 24432335,
             "tokens": [
                 {
                     "symbol": "USDC",
