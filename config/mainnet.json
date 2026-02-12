@@ -1,10 +1,10 @@
 {
     "network": "mainnet",
-    "intentFactory": "0x2Bc2E94c53f78a6393F70700E004fa0311ede5F8",
+    "intentFactory": "0x2496C36b30d6bcf1ed37954De35168Fb4Ac0dfCE",
     "networks": {
         "arbitrum-one": {
             "chainId": 42161,
-            "startBlock": 428842449,
+            "startBlock": 431252580,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -26,7 +26,7 @@
         },
         "avalanche": {
             "chainId": 43114,
-            "startBlock": 77576547,
+            "startBlock": 77874801,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -48,7 +48,7 @@
         },
         "base": {
             "chainId": 8453,
-            "startBlock": 42003929,
+            "startBlock": 42047131,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -70,7 +70,7 @@
         },
         "bsc": {
             "chainId": 56,
-            "startBlock": 80560685,
+            "startBlock": 80752282,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -87,12 +87,16 @@
                 {
                     "symbol": "BUSD",
                     "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
+                },
+                {
+                    "symbol": "ETH",
+                    "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"
                 }
             ]
         },
         "mainnet": {
             "chainId": 1,
-            "startBlock": 24432335,
+            "startBlock": 24439447,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -121,6 +125,80 @@
                 {
                     "symbol": "STRK",
                     "address": "0xCa14007Eff0dB1f8135f4C25B34De49AB0d42766"
+                }
+            ]
+        },
+        "optimism": {
+            "chainId": 10,
+            "startBlock": 147643289,
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85"
+                },
+                {
+                    "symbol": "USDT",
+                    "address": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"
+                },
+                {
+                    "symbol": "DAI",
+                    "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1"
+                },
+                {
+                    "symbol": "WETH",
+                    "address": "0x4200000000000000000000000000000000000006"
+                }
+            ]
+        },
+        "matic": {
+            "chainId": 137,
+            "startBlock": 82882674,
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+                },
+                {
+                    "symbol": "USDT",
+                    "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+                },
+                {
+                    "symbol": "DAI",
+                    "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063"
+                },
+                {
+                    "symbol": "WETH",
+                    "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"
+                }
+            ]
+        },
+        "monad": {
+            "chainId": 143,
+            "startBlock": 54858810,
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603"
+                }
+            ]
+        },
+        "hyperevm": {
+            "chainId": 999,
+            "startBlock": 27075160,
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0xb88339CB7199b77E23DB6E890353E22632Ba630f"
+                }
+            ]
+        },
+        "lisk": {
+            "chainId": 1135,
+            "startBlock": 28078339,
+            "tokens": [
+                {
+                    "symbol": "USDC",
+                    "address": "0xF242275d3a6527d877f2c927a82D9b057609cc71"
                 }
             ]
         }

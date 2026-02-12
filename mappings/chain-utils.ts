@@ -39,5 +39,25 @@ export function getChainIdFromNetwork(): BigInt {
         return BigInt.fromI32(56);
     }
 
+    if (network == "optimism") {
+        return BigInt.fromI32(10);
+    }
+
+    if (network == "matic") {
+        return BigInt.fromI32(137);
+    }
+
+    if (network == "monad") {
+        return BigInt.fromI32(143);
+    }
+
+    if (network == "hyperevm") {
+        return BigInt.fromI32(999);
+    }
+
+    if (network == "lisk") {
+        return BigInt.fromI32(1135);
+    }
+
     return BigInt.zero();
 }

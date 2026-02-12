@@ -13,9 +13,6 @@ dataSources:
           abi: IntentFactory
           # prettier-ignore
           startBlock: {{startBlock}}
-      # context:
-      #     # prettier-ignore
-      #     chainId: "{{chainId}}"
       mapping:
           kind: ethereum/events
           apiVersion: 0.0.6
@@ -28,6 +25,8 @@ dataSources:
           eventHandlers:
               - event: IntentDeclared(indexed address,(uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes),indexed address)
                 handler: handleIntentDeclared
+              - event: IntentCreated(indexed address,(uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes),indexed address)
+                handler: handleIntentCreated
           file: ./mappings/intent-factory.ts
 {{#tokens}}
     - kind: ethereum/contract
@@ -39,9 +38,6 @@ dataSources:
           abi: ERC20
           # prettier-ignore
           startBlock: {{startBlock}}
-      # context:
-      #     # prettier-ignore
-      #     chainId: "{{chainId}}"
       mapping:
           kind: ethereum/events
           apiVersion: 0.0.6
@@ -58,3 +54,23 @@ dataSources:
                 handler: handleERC20Transfer
           file: ./mappings/erc20.ts
 {{/tokens}}
+templates:
+    - kind: ethereum/contract
+      name: Intent
+      network: {{network}}
+      source:
+          abi: Intent
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.6
+          language: wasm/assemblyscript
+          entities:
+              - FundingTransaction
+              - Token
+          abis:
+              - name: Intent
+                file: ./abis/intent.json
+          eventHandlers:
+              - event: NativeTransfer(indexed address,indexed address,uint256)
+                handler: handleNativeTransfer
+          file: ./mappings/native-transfer.ts

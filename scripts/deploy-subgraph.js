@@ -24,7 +24,12 @@ const chainNameMap = {
     "base-sepolia": "base-sepolia",
     bsc: "bsc",
     mainnet: "mainnet",
-    sepolia: "sepolia"
+    sepolia: "sepolia",
+    optimism: "optimism",
+    matic: "matic",
+    monad: "monad",
+    hyperevm: "hyperevm",
+    lisk: "lisk"
 };
 
 if (!chain) {
@@ -58,6 +63,9 @@ try {
 const subgraphPath = `chainrails/${subgraphName}-v${deployVersion}`;
 console.log(`\n🚀 Deploying ${subgraphName} as version ${deployVersion}...`);
 console.log(`   Subgraph path: ${subgraphPath}`);
+console.log(
+    `   Full command: goldsky subgraph deploy ${subgraphPath} --path ./build`
+);
 
 try {
     execSync(`goldsky subgraph deploy ${subgraphPath} --path ./build`, {
@@ -67,6 +75,11 @@ try {
 } catch (error) {
     console.error(
         `\n❌ Deployment failed for ${subgraphName} v${deployVersion}`
+    );
+    console.error(
+        `\n💡 If the error mentions an existing subgraph (e.g., v1.0.0), you may need to:` +
+            `\n   1. Delete the old subgraph: goldsky subgraph delete chainrails/${subgraphName}-v1.0.0` +
+            `\n   2. Or deploy with a different version: yarn deploy:${chain} 1.2.0`
     );
     process.exit(1);
 }
