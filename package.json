@@ -1,12 +1,14 @@
 {
     "name": "chainrails-subgraph",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Chainrails subgraph for monitoring intent funding",
     "main": "index.js",
     "scripts": {
         "codegen": "graph codegen",
         "build": "graph build",
         "prepare": "node scripts/generate-subgraph.js",
+        "update-start-blocks": "node scripts/update-start-blocks.js",
+        "update-start-blocks:dry-run": "node scripts/update-start-blocks.js --dry-run",
         "prepare:arbitrum-one": "yarn prepare mainnet arbitrum-one",
         "prepare:arbitrum-sepolia": "yarn prepare testnet arbitrum-sepolia",
         "prepare:avalanche": "yarn prepare mainnet avalanche",

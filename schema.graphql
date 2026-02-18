@@ -49,3 +49,42 @@ enum IntentStatus {
     INITIATED
     COMPLETED
 }
+
+enum BroadcastStatus {
+    PENDING
+    EXECUTED
+    CANCELLED
+}
+
+type Broadcast @entity {
+    id: ID!
+    broadcastId: Bytes!
+    sender: Bytes!
+    sourceChain: Int!
+    destinationChain: Int!
+    destinationRecipient: Bytes!
+    refundAddress: Bytes!
+    broadcaster: Bytes!
+    broadcastingContract: Bytes!
+    isLive: Boolean!
+    status: BroadcastStatus!
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
+    deposits: [BroadcastDeposit!]! @derivedFrom(field: "broadcast")
+    bridgeTokenOutOptions: [BroadcastTokenAmount!]! @derivedFrom(field: "broadcast")
+}
+
+type BroadcastDeposit @entity {
+    id: ID!
+    broadcast: Broadcast!
+    token: Bytes!
+    amount: BigInt!
+}
+
+type BroadcastTokenAmount @entity {
+    id: ID!
+    broadcast: Broadcast!
+    token: Bytes!
+    amount: BigInt!
+}

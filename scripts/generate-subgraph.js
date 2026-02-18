@@ -60,6 +60,7 @@ if (chainConfig.tokens && Array.isArray(chainConfig.tokens)) {
 const templateData = {
     network: targetChain,
     intentFactory: config.intentFactory,
+    broadcaster: config.broadcaster,
     startBlock: chainConfig.startBlock,
     chainId: String(chainConfig.chainId),
     tokens: tokens
