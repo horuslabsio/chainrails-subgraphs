@@ -4,7 +4,7 @@
     "networks": {
         "arbitrum-sepolia": {
             "chainId": 421614,
-            "startBlock": 214099172,
+            "startBlock": 243588047,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -14,7 +14,7 @@
         },
         "avalanche-testnet": {
             "chainId": 43113,
-            "startBlock": 51629276,
+            "startBlock": 51907855,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -24,7 +24,7 @@
         },
         "base-sepolia": {
             "chainId": 84532,
-            "startBlock": 37398338,
+            "startBlock": 37824242,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -34,7 +34,7 @@
         },
         "sepolia": {
             "chainId": 11155111,
-            "startBlock": 10218363,
+            "startBlock": 10285764,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -42,5 +42,6 @@
                 }
             ]
         }
-    }
+    },
+    "broadcaster": "0xf6500dD2629a0B8B2C1bcCB55f0D560b8e362b12"
 }

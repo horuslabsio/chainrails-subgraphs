@@ -28,6 +28,34 @@ dataSources:
               - event: IntentCreated(indexed address,(uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes),indexed address)
                 handler: handleIntentCreated
           file: ./mappings/intent-factory.ts
+    - kind: ethereum/contract
+      name: IntentBroadcaster
+      # prettier-ignore
+      network: {{network}}
+      source:
+          address: "{{broadcaster}}"
+          abi: IntentBroadcaster
+          # prettier-ignore
+          startBlock: {{startBlock}}
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.6
+          language: wasm/assemblyscript
+          entities:
+              - Broadcast
+              - BroadcastDeposit
+              - BroadcastTokenAmount
+          abis:
+              - name: IntentBroadcaster
+                file: ./abis/intent_broadcaster.json
+          eventHandlers:
+              - event: IntentBroadcasted(indexed bytes32,indexed address,uint8,uint8,bytes32,address,(bytes32,uint256)[],(bytes32,uint256)[],address,indexed address,bool)
+                handler: handleIntentBroadcasted
+              - event: BroadcastExecuted(indexed bytes32,indexed address)
+                handler: handleBroadcastExecuted
+              - event: BroadcastCancelled(indexed bytes32,indexed address)
+                handler: handleBroadcastCancelled
+          file: ./mappings/intent-broadcaster.ts
 {{#tokens}}
     - kind: ethereum/contract
       name: {{symbol}}
