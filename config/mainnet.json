@@ -1,11 +1,11 @@
 {
     "network": "mainnet",
     "intentFactory": "0x2496C36b30d6bcf1ed37954De35168Fb4Ac0dfCE",
-    "broadcaster": "0x43E0114d74231460707796c11fFc7D7dF970d3Ce",
+    "broadcaster": "0xC3d9c7d72dfe9512E1cE06739dd9916d31fD6144",
     "networks": {
         "arbitrum-one": {
             "chainId": 42161,
-            "startBlock": 433389522,
+            "startBlock": 436949713,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -27,7 +27,7 @@
         },
         "avalanche": {
             "chainId": 43114,
-            "startBlock": 78377557,
+            "startBlock": 79232636,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -49,7 +49,7 @@
         },
         "base": {
             "chainId": 8453,
-            "startBlock": 42313707,
+            "startBlock": 42757527,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -71,7 +71,7 @@
         },
         "bsc": {
             "chainId": 56,
-            "startBlock": 81935597,
+            "startBlock": 83907486,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -97,7 +97,7 @@
         },
         "mainnet": {
             "chainId": 1,
-            "startBlock": 24483641,
+            "startBlock": 24557309,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -131,7 +131,7 @@
         },
         "optimism": {
             "chainId": 10,
-            "startBlock": 147908993,
+            "startBlock": 148352813,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -153,7 +153,7 @@
         },
         "matic": {
             "chainId": 137,
-            "startBlock": 83148370,
+            "startBlock": 83592186,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -175,7 +175,7 @@
         },
         "monad": {
             "chainId": 143,
-            "startBlock": 56183880,
+            "startBlock": 58399074,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -185,7 +185,7 @@
         },
         "hyperevm": {
             "chainId": 999,
-            "startBlock": 27615271,
+            "startBlock": 28517619,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -195,7 +195,7 @@
         },
         "lisk": {
             "chainId": 1135,
-            "startBlock": 28343987,
+            "startBlock": 28787807,
             "tokens": [
                 {
                     "symbol": "USDC",
