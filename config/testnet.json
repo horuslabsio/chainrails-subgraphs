@@ -1,10 +1,11 @@
 {
     "network": "testnet",
     "intentFactory": "0x2Bc2E94c53f78a6393F70700E004fa0311ede5F8",
+    "broadcaster": "0xf6500dD2629a0B8B2C1bcCB55f0D560b8e362b12",
     "networks": {
         "arbitrum-sepolia": {
             "chainId": 421614,
-            "startBlock": 243588047,
+            "startBlock": 245972284,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -14,7 +15,7 @@
         },
         "avalanche-testnet": {
             "chainId": 43113,
-            "startBlock": 51907855,
+            "startBlock": 52254334,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -24,7 +25,7 @@
         },
         "base-sepolia": {
             "chainId": 84532,
-            "startBlock": 37824242,
+            "startBlock": 38268061,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -34,7 +35,7 @@
         },
         "sepolia": {
             "chainId": 11155111,
-            "startBlock": 10285764,
+            "startBlock": 10356390,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -42,6 +43,5 @@
                 }
             ]
         }
-    },
-    "broadcaster": "0xf6500dD2629a0B8B2C1bcCB55f0D560b8e362b12"
+    }
 }
