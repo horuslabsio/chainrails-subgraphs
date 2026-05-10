@@ -1,6 +1,7 @@
 type Intent @entity {
     id: ID!
     intentAddress: String!
+    destinationIntentAddress: String
     sourceChain: Int!
     destinationChain: Int!
     bridgeTokenOutOptions: [TokenAmount!]!
@@ -17,6 +18,41 @@ type Intent @entity {
     fundingTransactions: [FundingTransaction!]! @derivedFrom(field: "intent")
 }
 
+type DestinationIntentIndex @entity {
+    id: ID! # destination intent address (lowercased)
+    intent: Intent!
+}
+
+type PendingDestinationIntent @entity {
+    id: ID! # tx hash
+    destinationIntentAddress: String!
+}
+
+type WatchedIntentAddress @entity {
+    id: ID! # address lowercased
+    createdAtBlock: BigInt!
+    createdAtTimestamp: BigInt!
+    tokenAddress: String
+}
+
+type PrefillEvent @entity {
+    id: ID! # tx_hash-log_index
+    intentAddress: String!
+    relayer: String!
+    tokenAddress: String!
+    amount: BigInt!
+    chainId: Int!
+}
+
+type DestinationFundingTransaction @entity {
+    id: ID! # tx_hash-log_index
+    intentAddress: String!
+    fromAddress: String!
+    tokenAddress: String!
+    amount: BigInt!
+    chainId: Int!
+}
+
 type FundingTransaction @entity {
     id: ID! # tx_hash-log_index
     intent: Intent!
@@ -24,6 +60,7 @@ type FundingTransaction @entity {
     amount: BigInt!
     chainId: Int!
     tokenAddress: String! # Keep for backward compatibility and easy querying
+    isDestination: Boolean!
 }
 
 type TokenAmount @entity {

@@ -9,7 +9,7 @@ const NATIVE_ETH_ADDRESS = "0x0000000000000000000000000000000000000000";
 export function handleNativeTransfer(event: NativeTransfer): void {
     // Get the intent address from the data source context
     // The template data source is created for each intent address
-    const intentAddress = dataSource.address().toHexString();
+    const intentAddress = dataSource.address().toHexString().toLowerCase();
 
     log.info(
         "handleNativeTransfer called for address: {} from: {} to: {} amount: {}",
@@ -71,6 +71,7 @@ export function handleNativeTransfer(event: NativeTransfer): void {
     fundingTx.tokenAddress = NATIVE_ETH_ADDRESS;
     fundingTx.amount = event.params.amount;
     fundingTx.chainId = chainId;
+    fundingTx.isDestination = false;
 
     // Update intent status and total funded
     intent.status = "FUNDED";

@@ -1,0 +1,14 @@
+[
+  {
+    "type": "event",
+    "name": "IntentPrefilled",
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "name": "relayer", "type": "address" },
+      { "indexed": true, "name": "intentAddr", "type": "address" },
+      { "indexed": false, "name": "amount", "type": "uint256" },
+      { "indexed": false, "name": "token", "type": "address" }
+    ]
+  }
+]
+

@@ -61,6 +61,8 @@ const templateData = {
     network: targetChain,
     intentFactory: config.intentFactory,
     broadcaster: config.broadcaster,
+    chainrails: config.chainrails,
+    relayerHub: config.relayerHub,
     startBlock: chainConfig.startBlock,
     chainId: String(chainConfig.chainId),
     tokens: tokens

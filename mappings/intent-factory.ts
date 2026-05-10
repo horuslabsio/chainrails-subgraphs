@@ -6,7 +6,7 @@ import { Intent, TokenAmount } from "../generated/schema";
 import { BigInt, log, DataSourceTemplate } from "@graphprotocol/graph-ts";
 
 export function handleIntentDeclared(event: IntentDeclared): void {
-    let intentAddr = event.params.intentAddress.toHexString();
+    let intentAddr = event.params.intentAddress.toHexString().toLowerCase();
 
     log.info("1. Detected IntentDeclared for intent: {}", [intentAddr]);
 
@@ -65,7 +65,7 @@ export function handleIntentDeclared(event: IntentDeclared): void {
 }
 
 export function handleIntentCreated(event: IntentCreated): void {
-    let intentAddr = event.params.intentAddress.toHexString();
+    let intentAddr = event.params.intentAddress.toHexString().toLowerCase();
 
     log.info("1. Detected IntentCreated for intent: {}", [intentAddr]);
 

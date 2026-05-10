@@ -56,6 +56,53 @@ dataSources:
               - event: BroadcastCancelled(indexed bytes32,indexed address)
                 handler: handleBroadcastCancelled
           file: ./mappings/intent-broadcaster.ts
+    - kind: ethereum/contract
+      name: Chainrails
+      # prettier-ignore
+      network: {{network}}
+      source:
+          address: "{{chainrails}}"
+          abi: Chainrails
+          # prettier-ignore
+          startBlock: {{startBlock}}
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.6
+          language: wasm/assemblyscript
+          entities:
+              - Intent
+              - DestinationIntentIndex
+              - FundingTransaction
+          abis:
+              - name: Chainrails
+                file: ./abis/chainrails.json
+          eventHandlers:
+              - event: IntentStarted(indexed address,(uint8,uint8,(bytes32,uint256)[],bytes32,address,address,address,uint256,uint256,bool,bytes))
+                handler: handleIntentStarted
+          file: ./mappings/chainrails.ts
+    - kind: ethereum/contract
+      name: RelayerHub
+      # prettier-ignore
+      network: {{network}}
+      source:
+          address: "{{relayerHub}}"
+          abi: RelayerHub
+          # prettier-ignore
+          startBlock: {{startBlock}}
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.6
+          language: wasm/assemblyscript
+          entities:
+              - WatchedIntentAddress
+              - PrefillEvent
+          abis:
+              - name: RelayerHub
+                file: ./abis/relayer_hub.json
+          eventHandlers:
+              - event: IntentPrefilled(indexed address,indexed address,uint256,address)
+                handler: handleIntentPrefilled
+          file: ./mappings/relayer-hub.ts
 {{#tokens}}
     - kind: ethereum/contract
       name: {{symbol}}
@@ -72,7 +119,10 @@ dataSources:
           language: wasm/assemblyscript
           entities:
               - Intent
+              - DestinationIntentIndex
+              - WatchedIntentAddress
               - FundingTransaction
+              - DestinationFundingTransaction
               - Token
           abis:
               - name: ERC20

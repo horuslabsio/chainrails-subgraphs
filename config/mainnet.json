@@ -2,10 +2,12 @@
     "network": "mainnet",
     "intentFactory": "0x2496C36b30d6bcf1ed37954De35168Fb4Ac0dfCE",
     "broadcaster": "0xC3d9c7d72dfe9512E1cE06739dd9916d31fD6144",
+    "chainrails": "0xA02688E7F84Ed253Cd91B2b3C4019E09fd6ec079",
+    "relayerHub": "0x3aB9e447dC1Dd2eA28CD305Aa0878E6AEAB55D61",
     "networks": {
         "arbitrum-one": {
             "chainId": 42161,
-            "startBlock": 436949713,
+            "startBlock": 461484828,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -22,12 +24,40 @@
                 {
                     "symbol": "WETH",
                     "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+                },
+                {
+                    "symbol": "USDS",
+                    "address": "0x6491c05A82219b8D1479057361ff1654749b876b"
+                },
+                {
+                    "symbol": "WBTC",
+                    "address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"
+                },
+                {
+                    "symbol": "LINK",
+                    "address": "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4"
+                },
+                {
+                    "symbol": "UNI",
+                    "address": "0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0"
+                },
+                {
+                    "symbol": "ARB",
+                    "address": "0x912CE59144191C1204E64559FE8253a0e49E6548"
+                },
+                {
+                    "symbol": "CRV",
+                    "address": "0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978"
+                },
+                {
+                    "symbol": "wstETH",
+                    "address": "0x0fBcbaEA96Ce0cF7Ee00A8c19c3ab6f5Dc8E1921"
                 }
             ]
         },
         "avalanche": {
             "chainId": 43114,
-            "startBlock": 79232636,
+            "startBlock": 85108139,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -44,12 +74,24 @@
                 {
                     "symbol": "WETH",
                     "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB"
+                },
+                {
+                    "symbol": "sAVAX",
+                    "address": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE"
+                },
+                {
+                    "symbol": "WAVAX",
+                    "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
+                },
+                {
+                    "symbol": "ARENA",
+                    "address": "0xB8d7710f7d8349A506b75dD184F05777c82dAd0C"
                 }
             ]
         },
         "base": {
             "chainId": 8453,
-            "startBlock": 42757527,
+            "startBlock": 45829067,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -66,12 +108,44 @@
                 {
                     "symbol": "WETH",
                     "address": "0x4200000000000000000000000000000000000006"
+                },
+                {
+                    "symbol": "USDS",
+                    "address": "0x820C137fa70C8691f0e44Dc420a5e53c168921Dc"
+                },
+                {
+                    "symbol": "WBTC",
+                    "address": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c"
+                },
+                {
+                    "symbol": "cbBTC",
+                    "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+                },
+                {
+                    "symbol": "LINK",
+                    "address": "0x88Fb150BDc53A65fe94Dea0c9BA0a6dAf8C6e196"
+                },
+                {
+                    "symbol": "SOL",
+                    "address": "0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82"
+                },
+                {
+                    "symbol": "AAVE",
+                    "address": "0x63706e401c06ac8513145b7687A14804d17f814b"
+                },
+                {
+                    "symbol": "VIRTUAL",
+                    "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b"
+                },
+                {
+                    "symbol": "CRV",
+                    "address": "0x8Ee73c484A26e0A5df2Ee2a4960B789967dd0415"
                 }
             ]
         },
         "bsc": {
             "chainId": 56,
-            "startBlock": 83907486,
+            "startBlock": 97541314,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -92,12 +166,32 @@
                 {
                     "symbol": "ETH",
                     "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"
+                },
+                {
+                    "symbol": "WBTC",
+                    "address": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c"
+                },
+                {
+                    "symbol": "LINK",
+                    "address": "0x3af577F9D8c86ae8DBCBF51FE9836c9DF825759d"
+                },
+                {
+                    "symbol": "SOL",
+                    "address": "0x570A5D26f7765Ecb712C0924E4De545B89fD43dF"
+                },
+                {
+                    "symbol": "anyBTC",
+                    "address": "0x54261774905f3e6E9718f2ABb10ed6555cae308a"
+                },
+                {
+                    "symbol": "WBNB",
+                    "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
                 }
             ]
         },
         "mainnet": {
             "chainId": 1,
-            "startBlock": 24557309,
+            "startBlock": 25067296,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -126,12 +220,48 @@
                 {
                     "symbol": "STRK",
                     "address": "0xCa14007Eff0dB1f8135f4C25B34De49AB0d42766"
+                },
+                {
+                    "symbol": "USDS",
+                    "address": "0xdC035D45d973e3EC169d2276DDab16f1e407384F"
+                },
+                {
+                    "symbol": "USDG",
+                    "address": "0xe343167631d89B6Ffc58B88d6b7fB0228795491D"
+                },
+                {
+                    "symbol": "WBTC",
+                    "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+                },
+                {
+                    "symbol": "LINK",
+                    "address": "0x514910771AF9Ca656af840dff83E8264EcF986CA"
+                },
+                {
+                    "symbol": "AAVE",
+                    "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9"
+                },
+                {
+                    "symbol": "UNI",
+                    "address": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"
+                },
+                {
+                    "symbol": "stETH",
+                    "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+                },
+                {
+                    "symbol": "wstETH",
+                    "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+                },
+                {
+                    "symbol": "SKY",
+                    "address": "0x56072C95FAA701256059aa122697B133aDEd9279"
                 }
             ]
         },
         "optimism": {
             "chainId": 10,
-            "startBlock": 148352813,
+            "startBlock": 151424354,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -148,12 +278,36 @@
                 {
                     "symbol": "WETH",
                     "address": "0x4200000000000000000000000000000000000006"
+                },
+                {
+                    "symbol": "WBTC",
+                    "address": "0x68f180fcCe6836688e9084f035309E29Bf0A2095"
+                },
+                {
+                    "symbol": "LINK",
+                    "address": "0x350a791Bfc2C21F9Ed5d10980Dad2e2638ffa7f6"
+                },
+                {
+                    "symbol": "UNI",
+                    "address": "0x6fd9d7AD17242c41f7131d257212c54A0e816691"
+                },
+                {
+                    "symbol": "wstETH",
+                    "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb"
+                },
+                {
+                    "symbol": "OP",
+                    "address": "0x4200000000000000000000000000000000000042"
+                },
+                {
+                    "symbol": "WLD",
+                    "address": "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1"
                 }
             ]
         },
         "matic": {
             "chainId": 137,
-            "startBlock": 83592186,
+            "startBlock": 86690157,
             "tokens": [
                 {
                     "symbol": "USDC",
@@ -170,32 +324,76 @@
                 {
                     "symbol": "WETH",
                     "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"
+                },
+                {
+                    "symbol": "WBTC",
+                    "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6"
+                },
+                {
+                    "symbol": "LINK",
+                    "address": "0xb0897686c545045aFc77CF20eC7A532E3120E0F1"
+                },
+                {
+                    "symbol": "SOL",
+                    "address": "0xd93f7E271cB87c23AaA73edC008A79646d1F9912"
+                },
+                {
+                    "symbol": "UNI",
+                    "address": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f"
                 }
             ]
         },
         "monad": {
             "chainId": 143,
-            "startBlock": 58399074,
+            "startBlock": 73750813,
             "tokens": [
                 {
                     "symbol": "USDC",
                     "address": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603"
+                },
+                {
+                    "symbol": "WETH",
+                    "address": "0xee8c0e9f1bffb4eb878d8f15f368a02a35481242"
+                },
+                {
+                    "symbol": "USDT0",
+                    "address": "0xe7cd86e13ac4309349f30b3435a9d337750fc82d"
+                },
+                {
+                    "symbol": "WBTC",
+                    "address": "0x0555e30da8f98308edb960aa94c0db47230d2b9c"
+                },
+                {
+                    "symbol": "AUSD",
+                    "address": "0x00000000efe302beaa2b3e6e1b18d08d69a9012a"
+                },
+                {
+                    "symbol": "WMON",
+                    "address": "0x3bd359c1119da7da1d913d1c4d2b7c461115433a"
+                },
+                {
+                    "symbol": "LVMON",
+                    "address": "0x91b81bfbe3a747230f0529aa28d8b2bc898e6d56"
                 }
             ]
         },
         "hyperevm": {
             "chainId": 999,
-            "startBlock": 28517619,
+            "startBlock": 34762315,
             "tokens": [
                 {
                     "symbol": "USDC",
                     "address": "0xb88339CB7199b77E23DB6E890353E22632Ba630f"
+                },
+                {
+                    "symbol": "USDT0",
+                    "address": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"
                 }
             ]
         },
         "lisk": {
             "chainId": 1135,
-            "startBlock": 28787807,
+            "startBlock": 31859347,
             "tokens": [
                 {
                     "symbol": "USDC",
