@@ -53,7 +53,7 @@ dataSources:
                 handler: handleIntentBroadcasted
               - event: BroadcastExecuted(indexed bytes32,indexed address)
                 handler: handleBroadcastExecuted
-              - event: BroadcastCancelled(indexed bytes32,indexed address)
+              - event: BroadcastCancelled(indexed bytes32,indexed address,indexed address)
                 handler: handleBroadcastCancelled
           file: ./mappings/intent-broadcaster.ts
     - kind: ethereum/contract
