@@ -1,0 +1,4 @@
+{
+  "webhookUrl": "https://tumulose-florance-nonvertically.ngrok-free.dev/api/v1/goldsky/webhooks",
+  "webhookSecret": "whs_your_local_secret"
+}

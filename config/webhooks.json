@@ -1,0 +1,10 @@
+{
+  "namePrefix": "cr",
+  "entities": [
+    "funding_transaction",
+    "destination_funding_transaction",
+    "broadcast",
+    "broadcast_deposit",
+    "broadcast_token_amount"
+  ]
+}

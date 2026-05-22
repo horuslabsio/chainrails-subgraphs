@@ -1,6 +1,6 @@
 {
   "name": "chainrails-subgraph",
-    "version": "1.3.1",
+  "version": "1.3.1",
   "description": "Chainrails subgraph for monitoring intent funding",
   "main": "index.js",
   "scripts": {
@@ -55,7 +55,19 @@
     "deploy:all": "node scripts/deploy-all.js",
     "deploy:all:mainnet": "node scripts/deploy-all.js mainnet",
     "deploy:all:testnet": "node scripts/deploy-all.js testnet",
-    "deploy:all:all": "node scripts/deploy-all.js all"
+    "deploy:all:all": "node scripts/deploy-all.js all",
+    "create-webhooks": "node scripts/create-webhooks.js",
+    "create-webhooks:base": "node scripts/create-webhooks.js base",
+    "create-webhooks:arbitrum-one": "node scripts/create-webhooks.js arbitrum-one",
+    "create-webhooks:all:mainnet": "node scripts/create-webhooks-all.js mainnet",
+    "create-webhooks:all:testnet": "node scripts/create-webhooks-all.js testnet",
+    "create-webhooks:all:mainnet:local": "node scripts/create-webhooks-all.js mainnet --env local",
+    "create-webhooks:all:mainnet:dev": "node scripts/create-webhooks-all.js mainnet --env dev",
+    "create-webhooks:all:mainnet:prod": "node scripts/create-webhooks-all.js mainnet --env prod",
+    "create-webhooks:base:local": "node scripts/create-webhooks.js base --env local",
+    "create-webhooks:base:dev": "node scripts/create-webhooks.js base --env dev",
+    "create-webhooks:base:prod": "node scripts/create-webhooks.js base --env prod",
+    "list-webhook-entities:base": "node scripts/list-webhook-entities.js base"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.67.4",

@@ -1,0 +1,4 @@
+{
+  "webhookUrl": "https://api.chainrails.io/api/v1/goldsky/webhooks",
+  "webhookSecret": "whs_your_prod_secret"
+}
